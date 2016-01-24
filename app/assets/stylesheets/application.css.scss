@@ -1,2 +1,22 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+#main {
+  height: 100vh;
+  background-image: image-url("main3.jpg");
+  background-size: cover;
+  background-position: center;
+  opacity: 1;
+}
+
+.navbar {
+	background-color: transparent;
+	border: none;
+	
+}
+
+#nav-brand, #nav-elements li a {
+	color: #FFFFFF;
+/*	font-weight: bold;*/
+	font-size: 1.5em;
+}

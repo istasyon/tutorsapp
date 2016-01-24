@@ -7,6 +7,7 @@
   background-size: cover;
   background-position: center;
   opacity: 1;
+/*  position: relative;*/
 }
 
 .navbar {
@@ -19,4 +20,29 @@
 	color: #FFFFFF;
 /*	font-weight: bold;*/
 	font-size: 1.5em;
+}
+
+#main h1 {
+	color: #FFFFFF;
+	font-size: 3em;
+	text-align: center;
+/*	position: absolute;*/
+	margin-top: 50%;
+	font-weight: bold;
+}
+
+#testform {
+	text-align: center;
+	font-weight: bold;
+
+}
+
+.grayscale { 
+  -webkit-filter: grayscale(30%);
+  -moz-filter: grayscale(30%);
+  -ms-filter: grayscale(30%);
+  -o-filter: grayscale(30%);
+  filter: grayscale(30%);
+  filter: url(grayscale.svg); /* Firefox 4+ */
+  filter: gray; /* IE 6-9 */
 }

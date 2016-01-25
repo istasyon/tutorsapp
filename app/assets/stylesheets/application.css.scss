@@ -36,18 +36,9 @@
 
 }
 
-.container {
+.form-row {
 	position: relative;
  	top: 80%;
  	transform: translateY(-80%);
 }
 
-.grayscale { 
-  -webkit-filter: grayscale(30%);
-  -moz-filter: grayscale(30%);
-  -ms-filter: grayscale(30%);
-  -o-filter: grayscale(30%);
-  filter: grayscale(30%);
-  filter: url(grayscale.svg); /* Firefox 4+ */
-  filter: gray; /* IE 6-9 */
-}

@@ -15,3 +15,9 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+$('.home-header').css('height', wheight); //set to window tallness  
+
+  $(window).resize(function() {
+    wheight = $(window).height(); //get the height of the window
+    $('.home-header').css('height', wheight); //set to window tallness  
+  });

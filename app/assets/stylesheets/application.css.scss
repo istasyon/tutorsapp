@@ -26,16 +26,18 @@ html,body {
 }
 
 button.navbar-toggle.collapsed {
-	padding: 3px;
+	padding: 5px;
 }
 
 /* Carousel */
 
 .carousel.fade {
+  background-color: rgba(0,0,0,0.3);
   opacity: 1;
 }
 
 .carousel.fade .item {
+  z-index: -1;
   transition: opacity ease-out .7s;
   left: 0;
   opacity: 0;
@@ -47,7 +49,7 @@ button.navbar-toggle.collapsed {
 
 .carousel.fade .item:first-child {
   top: auto;
-  opacity: 0;
+  opacity: 0;/*   WHY */
   position: relative;
 }
 
@@ -56,7 +58,7 @@ button.navbar-toggle.collapsed {
 }
 
 #featured .item {
-  background-color: grey;
+  
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -68,7 +70,7 @@ button.navbar-toggle.collapsed {
 
 .home-header h1 {
 	color: #FFFFFF;
-	font-size: 3rem;
+	font-size: 4rem;
 	text-align: center;
 	position: absolute;
 	top: 35%;

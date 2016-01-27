@@ -15,9 +15,36 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-$('.home-header').css('height', wheight); //set to window tallness  
+
+$(function() {
+
+  var wheight = $(window).height(); 
+  var slideqty = $('#featured .item').length;
+  var randSlide = Math.floor(Math.random()*slideqty);
+  
+  $('.fullheight').css('height', wheight); //set to window tallness  
 
   $(window).resize(function() {
     wheight = $(window).height(); //get the height of the window
-    $('.home-header').css('height', wheight); //set to window tallness  
+    $('.fullheight').css('height', wheight); //set to window tallness  
   });
+
+  $('#featured .item').eq(randSlide).addClass('active');
+
+
+    //replace IMG inside carousels with a background image
+  $('#featured .item img').each(function() {
+    var imgSrc = $(this).attr('src');
+    $(this).parent().css({'background-image': 'url('+imgSrc+')'});
+    $(this).remove();
+  });
+
+
+    // Carousel change
+  $('.carousel').carousel({   
+    interval: 4000,  
+    pause: false  // do not pause on hover
+  });
+
+
+});

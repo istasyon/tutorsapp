@@ -9,26 +9,62 @@ html,body {
 }
 
 /* Navigation */
-
+ 
 .navbar {
 	background-color: transparent;
 	border: none;	
 }
 
-#nav-brand, #nav-elements li a {
+#nav-brand, ul.nav.navbar-nav li a {
 	color: #FFFFFF;
 	font-size: 1em;
+}    
+
+button.navbar-toggle.pull-left span.icon-bar {
+	background-color: #fff;
+} 
+      
+button.navbar-toggle.pull-left {
+	border: none;
 }
 
-.navbar .navbar-span {
-	color: #fff;
-	font-weight: bold;
+@media only screen and (max-width: 767px) {
+  .navbar {
+	background-color: rgba(0,0,0,.2);
+	border-bottom: 1px solid #adadad;	
+  }	
+  .side-collapse-container{
+      width:100%;
+      position:relative;
+      left:0;
+      transition:left .4s;
+  }
+  .side-collapse-container.out{
+      left:200px;
+  }
+  .side-collapse {
+      top:50px;
+      bottom:0;
+      left:0;
+      width:200px;
+      position:fixed;
+      overflow:hidden;
+      transition:width .4s;
+      background-color: #202024;
+  }
+  .side-collapse.in {
+      width:0;
+      background-color: #202024;
+  }
+  .navbar-brand {
+    position: absolute;
+    width: 20%;
+    left: 0;
+    top: 0;
+    text-align: center;
+    margin-left: 40%;
+  }
 }
-
-button.navbar-toggle.collapsed {
-	padding: 5px;
-}
-
 /* Carousel */
 
 .carousel.fade {
@@ -67,19 +103,27 @@ button.navbar-toggle.collapsed {
 }
 
 /* Carousel inner elements */
-
-.home-header h1 {
+.home-header h1.container {
 	color: #FFFFFF;
 	font-size: 4rem;
 	text-align: center;
 	position: absolute;
-	top: 35%;
+	top: 25%;
 	width: 100%;
 	font-weight: bold;
 	letter-spacing: -.05em;
 	text-shadow: #000 2px 2px 15px;
 }
-
+.home-header h2.container {
+  color: #FFFFFF;
+  font-size: 2rem;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  font-weight: normal;
+  text-shadow: #000 2px 2px 15px;
+}
 .form-container {
 	position: absolute;
 	bottom: 10%;
@@ -93,3 +137,54 @@ button.navbar-toggle.collapsed {
 	border: none;
 }
 
+@media only screen and (max-width: 767px) {
+  .home-header h1.container {
+    font-size: 36px;
+  }
+  .home-header h2.container {
+    font-size: 18px;
+    top: 55%;
+  }
+  .btn-group {
+    position: absolute;
+    bottom: 10%;
+    margin-left: 5%;
+  }
+  .btn-group .language-button {
+    width: 80%;
+  }
+  .btn-group .search-button {
+    background-color: #070716;
+    color: #fff;
+  }
+}
+@media only screen and (min-width: 767px) {
+  .home-header h1.container {
+    font-size: 50px;
+  }
+  .home-header h2.container {
+    font-size: 18px;
+    top: 55%;
+  }
+  .form-container {
+    bottom: 15%;
+  }
+}
+@media only screen and (min-width: 1023px) {
+  .home-header h1.container {
+    font-size: 4rem;
+  }
+  .home-header h2.container {
+    font-size: 30px;
+    top: 50%;
+  }
+  .form-container {
+    bottom: 10%;
+  }
+}
+@media only screen and (max-height: 580px) {
+
+  .form-container {
+    bottom: 0;
+  }
+}

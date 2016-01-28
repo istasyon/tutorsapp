@@ -1,24 +1,25 @@
 <div class="home-header">
-  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="navbar navbar-fixed-top navbar-default" role="navigation" >
       <div class="container-fluid">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="navbar-span">MENU</span>
+          <button data-toggle="collapse-side" data-target=".side-collapse" data-target-2=".side-collapse-container" type="button" class="navbar-toggle pull-left">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" id="nav-brand" href="#">TutorsApp </a>
-        </div><!-- navbar-header -->
-        <div class="collapse navbar-collapse" id="collapse">
-          <ul id="nav-elements"class="nav navbar-nav navbar-right">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">How It Works</a></li>
-            <li><a href="#">Login</a></li>
-            <li><a href="#">Become a Tutor</a></li>
-            <li><a href="#">About</a></li>
-          </ul>        
-        </div><!-- collapse navbar-collapse -->
-      </div><!-- container -->
-  </nav>
+        </div>
+        <div class="side-collapse in">
+          <nav role="navigation" class="navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#">How It Works</a></li>
+              <li><a href="#">Login</a></li>
+              <li><a href="#">Become a Tutor</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+  </div>
 
   <div class="carousel fade" data-ride="carousel" id="featured">
     <div class="carousel-inner fullheight">
@@ -27,11 +28,13 @@
       <div class="item"><%= image_tag "bg3.jpg"  %></div> 
       <div class="item"><%= image_tag "bg4.jpg"  %></div>       
     </div><!-- carousel-inner -->
+    <h1 class="container">WHICH LANGUAGE WOULD YOU LIKE TO LEARN?</h1>
+    <h2 class="container">Find local language tutors in any city in the world at affordable prices</h2>
   </div><!-- featured carousel -->
 
-  <h1 class="container">Find Tutors in Minutes</h1>
+
   <div class="form-container">
-    <div class="well well-lg col-md-6 col-md-offset-3">
+    <div class="well well-lg col-md-6 col-md-offset-3 hidden-xs">
       <form class="form-inline" id="testform">
         <div class="form-group">
           <label class="sr-only" for="language">Language</label>
@@ -45,7 +48,12 @@
       </form>
     </div>
   </div>
+  <div class="btn-group visible-xs col-xs-12">
+    <button type="button" class="btn btn-default language-button">Select a Language</button>
+    <button class="btn btn-default search-button" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+  </div>
 </div>
+
 
 <div class="row1">
   <div class="container">

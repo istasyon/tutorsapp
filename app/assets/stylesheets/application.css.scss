@@ -71,9 +71,15 @@ button.navbar-toggle.pull-left {
 
 /* Auth Modal */
 
-.modal.auth-modal .modal-dialog {
-  width: 35%;
+  .modal.auth-modal .modal-dialog {
+    width: 100%;
+  }
+@media only screen and (min-width: 767px) {
+  .modal.auth-modal .modal-dialog {
+    width: 35%;
+  }
 }
+
 
 .modal-body {
   text-align: center;

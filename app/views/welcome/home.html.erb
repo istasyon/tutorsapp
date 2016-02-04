@@ -13,12 +13,42 @@
           <nav role="navigation" class="navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
               <li><a href="#">How It Works</a></li>
-              <li><a href="#">Login</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#myModal" >Login</a></li>
+              <li><a href="#"  data-toggle="modal" data-target="#myModal" >Sign Up</a></li>
               <li><a href="#">Become a Tutor</a></li>
             </ul>
           </nav>
         </div>
       </div>
+  </div>
+
+    <!-- Modal -->
+  <div id="myModal" class="auth-modal modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div id="social">
+          <a id="facebook" href="#" class="btn btn-large btn-block btn-custom"> Log In with Facebook</a>
+          <a id="google" href="#" class="btn btn-large btn-block btn-custom"> Log In with Google</a>
+        </div>  
+
+
+        <div class="modal-body">
+          <p>OR</p>
+          <div class="form-group">
+            <input class="form-control form-custom" placeholder="Email"></input>
+            <input class="form-control form-custom" placeholder="Password"></input>
+
+          </div>
+
+          <a id="google" href="#" class="btn btn-large btn-block btn-custom"> Sign In</a>
+
+        </div>
+
+      </div>
+
+    </div>
   </div>
 
   <div class="carousel fade" data-ride="carousel" id="featured">

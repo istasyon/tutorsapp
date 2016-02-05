@@ -33,7 +33,7 @@
       <!-- Modal content-->
       <div class="modal-content">
         <div id="social">
-          <a id="facebook" href="#" class="btn btn-large btn-block btn-custom"> Log In with Facebook</a>
+          <%= link_to "Log In with Facebook", user_omniauth_authorize_path(:facebook), class: "btn btn-primary" %>
           <a id="google" href="#" class="btn btn-large btn-block btn-custom"> Log In with Google</a>
         </div>  
 
@@ -54,7 +54,7 @@
       <!-- Modal content-->
       <div class="modal-content">
         <div id="social">
-          <a id="facebook" href="#" class="btn btn-large btn-block btn-custom"> Sign Up with Facebook</a>
+          <%= link_to "Sign Up with Facebook", user_omniauth_authorize_path(:facebook), class: "btn btn-primary" %>
           <a id="google" href="#" class="btn btn-large btn-block btn-custom"> Sign Up with Google</a>
         </div>  
 

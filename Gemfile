@@ -14,6 +14,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 
 group :development, :test do
+  gem 'dotenv-rails'
   gem 'byebug'
   gem 'mysql2', '~> 0.3.10'
 end

@@ -34,7 +34,7 @@
       <div class="modal-content">
         <div id="social">
           <%= link_to "Log In with Facebook", user_omniauth_authorize_path(:facebook), class: "btn btn-primary" %>
-          <a id="google" href="#" class="btn btn-large btn-block btn-custom"> Log In with Google</a>
+          <%= link_to "Log In with Google", user_omniauth_authorize_path(:google_oauth2), class: "btn btn-success" %>
         </div>  
 
 
@@ -55,7 +55,7 @@
       <div class="modal-content">
         <div id="social">
           <%= link_to "Sign Up with Facebook", user_omniauth_authorize_path(:facebook), class: "btn btn-primary" %>
-          <a id="google" href="#" class="btn btn-large btn-block btn-custom"> Sign Up with Google</a>
+          <%= link_to "Sign Up with Google", user_omniauth_authorize_path(:google_oauth2), class: "btn btn-success" %>
         </div>  
 
 

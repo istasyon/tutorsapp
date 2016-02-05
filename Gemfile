@@ -12,6 +12,9 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'omniauth-oauth2', '~> 1.3.1'
+gem 'omniauth-google-oauth2'
+
 
 group :development, :test do
   gem 'dotenv-rails'

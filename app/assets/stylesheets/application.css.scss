@@ -199,7 +199,7 @@ button.navbar-toggle.pull-left {
   .btn-group {
     position: absolute;
     bottom: 10%;
-    margin-left: 5%;
+    width: 100%;
   }
   .btn-group .language-button {
     width: 80%;
@@ -207,6 +207,14 @@ button.navbar-toggle.pull-left {
   .btn-group .search-button {
     background-color: #070716;
     color: #fff;
+  }
+
+  button.btn.btn-default.search-button {
+    margin-left: -8px;
+  }
+
+  div.xs-buttons {
+    text-align:center;
   }
 }
 @media only screen and (min-width: 767px) {

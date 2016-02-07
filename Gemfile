@@ -14,7 +14,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-oauth2', '~> 1.3.1'
 gem 'omniauth-google-oauth2'
-
+gem "font-awesome-rails"
 
 group :development, :test do
   gem 'dotenv-rails'

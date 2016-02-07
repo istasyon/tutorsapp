@@ -1,5 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome";
 
 /* Basic Page CSS */
 
@@ -74,48 +75,89 @@ button.navbar-toggle.pull-left {
   .modal.auth-modal .modal-dialog {
     width: 100%;
   }
+  .modal.auth-modal .modal-dialog .modal-content {
+    padding: 20px;
+  }
+  
+  .modal-body {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .social-buttons {
+    text-align: center;
+  }
+
+  .btn-facebook {
+    background-color: #3B5998;
+    border-radius: 2px;
+    color: #fff;
+    width: 100%;
+    font-weight: bold;
+  }
+
+  .btn-google {
+    background-color: #DC4E41;
+    border-radius: 2px;
+    color: #fff;
+    width: 100%;
+    margin-top: 8px;
+    font-weight: bold;
+  }
+  .btn-email {
+    background-color: #fff;
+    border-color: #c4c4c4;
+    border: 1px solid;
+    border-radius: 2px;
+    color: #565a5c;
+    width: 100%;
+    font-weight: bold;
+  }
+
+  .or-seperator {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  
+  .login-switch {
+    padding: 20px 20px 0 20px;
+    text-align: center;
+  }
+
+
+
 @media only screen and (min-width: 767px) {
   .modal.auth-modal .modal-dialog {
-    width: 35%;
+    width: 315px;
+    position: relative;
+    top: 8rem;
+  }
+  .modal.auth-modal .modal-dialog .modal-content {
+      border-radius: 2px;
   }
 }
 
-
-.modal-body {
-  text-align: center;
-  margin: auto;
-  display: block;
+/*Login Modal*/
+.email-row {
+  margin-bottom: 7px;
 }
 
-.form-custom {
-  width: 35%;
-  margin: auto;
-  padding: 10px;
+#ModalLogin form .form-control {
+  border-radius: 2px;
 }
 
-.btn-custom {
-  border-radius: 0;
-  border: 0 none;
+.btn-login, .btn-signup {
+  margin-top: 15px;
+  width: 100%;
+  background-color: #55acee;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 2px;
 }
 
-#social {
-  padding: 15px;
-  width: 80%;
-  margin: auto;
-  text-align: center;
+.password-confirm {
+  margin-top: 7px;
 }
-
-#facebook {
-  background-color: #3a5795;
-  color: #FFF;
-}
-
-#google {
-  background-color: #d14836;
-  color: #FFF;
-}
-
-
 /* Carousel */
 
 .carousel.fade {

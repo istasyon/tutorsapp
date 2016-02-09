@@ -3,23 +3,47 @@
 @import "font-awesome";
 
 /* Basic Page CSS */
-
 html,body {
   height:100%;
   font-size: 16px;
 }
 
+
+
+
+
 /* Navigation */
 
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+    background-color: transparent; 
+} /*prevent background color on focus*/
+
+.navbar-collapse .navbar-right li a:focus, nav li a:hover {
+  border-color:  none;
+  box-shadow: none;
+  outline: none;
+  color: #fff;
+} /*prevent outline on focus*/
  
 .navbar {
   background-color: transparent;
   border: none; 
 }
 
-#nav-brand, ul.nav.navbar-nav li a {
+ul.nav.navbar-nav li a {
   color: #FFFFFF;
-  font-size: 1em;
+  font-size:  1.14286rem;
+}
+
+ul.nav.navbar-nav li a:hover {
+  color: #fff;
+}
+
+
+#nav-brand {
+  color: #fff;
+  font-size: 25px;
+  font-weight: bold;
 }    
 
 button.navbar-toggle.pull-left span.icon-bar {
@@ -70,6 +94,7 @@ button.navbar-toggle.pull-left {
 }
 
 /* Auth Modal */
+
   .modal-close {
     position: absolute;
     top: 0;

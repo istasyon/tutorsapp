@@ -1,6 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
+@import "become_a_teacher";
 
 /* Basic Page CSS */
 html,body {
@@ -392,6 +393,7 @@ button.navbar-toggle.pull-left {
 }
 
 .btn-teach {
+  color: #fff;
   border-radius: 0;
   background-color: #f2c200;
 }

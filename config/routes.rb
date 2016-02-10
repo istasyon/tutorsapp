@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   root 'welcome#home' 
+  get 'teacher' => 'welcome#become_a_teacher'  
   
   devise_for :users,
              path: '',

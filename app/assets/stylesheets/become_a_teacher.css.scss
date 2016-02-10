@@ -1,0 +1,45 @@
+#teacher-application-container {
+	
+	.navbar {
+		background-color: #4ec7c4;
+		color: #fff;
+		border-radius: 0;
+		text-align: center;
+		margin-bottom: 0;
+	}
+	
+	.main {
+		background-color: #F1F1F1;
+	}
+
+	input, textarea {
+		border-radius: 0;
+	}
+
+	#application, textarea {
+		width: 400px;
+	}
+
+	#tell-about {
+		margin: 0 auto;
+		width: 400px;
+	}
+
+	#application {
+		padding-top: 20px;
+		margin: 0 auto;
+	}
+
+	.submit-application {
+		text-align: center;
+		padding-top: 30px;
+		padding-bottom: 50px;
+	}
+
+	.btn-apply {
+		width: 400px;
+		background-color: #00959f;
+		color: #fff;
+		border-radius: 0;
+	}
+}

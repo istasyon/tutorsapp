@@ -1,0 +1,47 @@
+<div id="teacher-application-container">
+	<nav class="navbar navbar-default">
+  			<h1>Tutors</h1>
+  	</nav>
+  	<div class="main">
+		<form id="application" role="form">
+		  <div class="form-group">
+		    <label for="first">First name</label>
+		    <input type="text" class="form-control" id="first">
+		  </div>
+		  <div class="form-group">
+		    <label for="last">Last name</label>
+		    <input type="text" class="form-control" id="last">
+		  </div>
+		  <div class="form-group">
+		    <label for="email">Email address</label>
+		    <input type="email" class="form-control" id="email">
+		  </div>
+		  <div class="form-group">
+		    <label for="phone">Phone number</label>
+		    <input type="text" class="form-control" id="phone">
+		  </div>
+		  <div class="form-group">
+		  	  <label for="language-select">Language you'd like to teach</label><br>
+			  <form>
+			    <input id="language-select" list="languages" name="browser">
+			    <datalist id="languages">
+			      <option value="English">
+			      <option value="Turkish">
+			      <option value="German">
+			      <option value="Japanese">
+			      <option value="Italian">
+			      <option value="Spanish">
+			      <option value="French">
+			    </datalist>
+			  </form>
+		  </div>
+		  <div id="tell-about" class="form-group">
+		    <label for="about">Tell us about yourself</label>
+		    <textarea class="form-control" rows="5" id="about"></textarea>
+		  </div>
+		  <div class="submit-application">
+		  	  <button type="submit" class="btn btn-lg btn-apply">Submit</button>	  	
+		  </div>	  
+		</form>	
+  	</div>
+</div>

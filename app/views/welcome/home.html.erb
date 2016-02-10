@@ -1,4 +1,4 @@
-<div id="home-header" class="home-header">
+<div id="home-header" class="home-header fullheight">
   <div class="navbar navbar-fixed-top navbar-default" role="navigation" >
     <div class="container-fluid">
       <div class="navbar-header">
@@ -97,7 +97,7 @@
     </div>
   </div>  <!-- ModalSignUp -->
 
-  <div class="carousel fade" data-ride="carousel" id="featured">
+  <div class="carousel fade fullheight" data-ride="carousel" id="featured">
     <div class="carousel-inner fullheight">
       <div class="item"><%= image_tag "bg1.jpg"  %></div>    
       <div class="item"><%= image_tag "bg3.jpg"  %></div> 
@@ -105,35 +105,71 @@
     </div><!-- carousel-inner -->
     <h1 class="container">WHICH LANGUAGE WOULD YOU LIKE TO LEARN?</h1>
     <h2 class="container">Find local and online language tutors at affordable prices</h2>
-  </div><!-- featured carousel -->
-
-
-  <div class="form-container">
-    <div class="well well-lg col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 hidden-xs">
-      <form class="form-inline" id="testform">
-        <div class="form-group">
-          <label class="sr-only" for="language">Language</label>
-          <input type="text" class="form-control" id="language" placeholder="Enter a Language">
-        </div>
-        <div class="form-group">
-          <label class="sr-only" for="location">Location</label>
-          <input type="text" class="form-control" id="location" placeholder="Select your city">
-        </div>
-        <button type="submit" class="btn btn-default btn-success">Search Tutors</button>
-      </form>
+    <div class="form-container">
+      <div class="well well-lg col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 hidden-xs">
+        <form class="form-inline" id="testform">
+          <div class="form-group">
+            <label class="sr-only" for="language">Language</label>
+            <input type="text" class="form-control" id="language" placeholder="Enter a Language">
+          </div>
+          <div class="form-group">
+            <label class="sr-only" for="location">Location</label>
+            <input type="text" class="form-control" id="location" placeholder="Select your city">
+          </div>
+          <button type="submit" class="btn btn-default btn-success">Search Tutors</button>
+        </form>
+      </div>
     </div>
-  </div>
-  <div class="btn-group visible-xs">
+      <div class="btn-group visible-xs">
     <div class="xs-buttons">
       <button type="button" class="btn btn-default language-button">Select a Language</button>
       <button class="btn btn-default search-button" type="submit"><i class="glyphicon glyphicon-search"></i></button>
     </div>
   </div>
+  </div><!-- featured carousel -->
+
+
+
+
 </div> <!-- home-header -->
 
 
-<div class="row1">
+<div class="how">
   <div class="container">
     <h2>How It Works</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae necessitatibus voluptatibus nam reprehenderit unde doloribus a</p>
+    <div class="row">
+      <article class="service col-md-4 col-sm-6 col-xs-12">
+        <%= image_tag "search.svg", class: "icon_image" %>
+        <h3>Search for a tutor</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla facere labore.</p>
+      </article>
+
+      <article class="service col-md-4 col-sm-6 col-xs-12">
+        <%= image_tag "calendar-clock.svg", class: "icon_image" %>
+        <h3>Choose a date and time</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad nam, repellendus!</p>
+      </article>
+
+      <article class="service col-md-4 col-xs-12">
+        <%= image_tag "rocket.svg", class: "icon_image" %>
+        <h3>Start learning</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus accusamus earum veroe..</p>
+      </article>
+    </div>
+  </div>
+</div>
+
+<div class="teacher">
+  <div class="container">
+    <h2>Are You a Teacher?</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam amet, quisquam, mollitia modi voluptates accusantium possimus recusandae nihil culpa minima non omnis vel quidem, velit animi voluptas, excepturi rem minus.</p>
+    <button class="btn btn-lg btn-teach">Start teaching</button>
+    <div class="footer">
+      <span class="copyright">© 2016 Tutors App</span>
+      <span>
+        <a href="#" class="terms">Terms &amp; Privacy</a>    
+      </span>   
+    </div> 
   </div>
 </div>

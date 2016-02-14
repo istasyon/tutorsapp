@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   
   root 'welcome#home' 
-  get 'teacher' => 'welcome#become_a_teacher'  
+  get 'teacher' => 'welcome#become_a_teacher'
+  get 'search' => 'welcome#search_results' 
   
   devise_for :users,
              path: '',

@@ -2,6 +2,15 @@
 @import "bootstrap";
 @import "font-awesome";
 @import "become_a_teacher";
+@import "languages.min";
+@import "search_results";
+
+
+/*Navbar Overlap Fix*/
+body { padding-top: 40px; }
+@media screen and (max-width: 768px) {
+    body { padding-top: 0px; }
+}
 
 /* Basic Page CSS */
 html,body {
@@ -409,3 +418,4 @@ button.navbar-toggle.pull-left {
 .terms, .copyright {
   color: #fff;
 }
+

@@ -3,4 +3,7 @@ class WelcomeController < ApplicationController
   end
   def become_a_teacher
   end
+  def search_results
+  end
+  
 end

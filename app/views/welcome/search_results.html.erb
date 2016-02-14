@@ -1,107 +1,113 @@
-<div class="container">
-	<div id="search-nav" class="navbar navbar-fixed-top navbar-default" role="navigation" >
-	    <div class="container-fluid">
-	      <div class="navbar-header">
-	        <button data-toggle="collapse-side" data-target=".side-collapse" data-target-2=".side-collapse-container" type="button" class="navbar-toggle pull-left">
-	          <span class="icon-bar"></span>
-	          <span class="icon-bar"></span>
-	          <span class="icon-bar"></span>
-	        </button>
-	        <a class="navbar-brand" id="nav-brand" href="#">TUTORS</a>
-	      </div>
-	      <div id="side-menu" class="side-collapse in">
-	        <nav role="navigation" class="navbar-collapse">
-	          <ul class="nav navbar-nav navbar-right">
-	            <li><a href="#">How It Works</a></li>
-	            <li><a href="/teacher">Become a Tutor</a></li>
-	            <% if(!user_signed_in?) %>
-	              <li><a href="#"  data-toggle="modal" data-target="#ModalSignUp" >Sign Up</a></li>
-	              <li><a href="#" data-toggle="modal" data-target="#ModalLogin" >Login</a></li>
-	            <% else %>
-	              <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
-	            <% end %>
-	          </ul>
-	        </nav>
-	      </div>
-	    </div>
-  </div> 
+<div id="search-results">
+	<div class="container">
+		<div id="search-nav" class="navbar navbar-fixed-top navbar-default" role="navigation" >
+		    <div class="container-fluid">
+		      <div class="navbar-header">
+		        <button data-toggle="collapse-side" data-target=".side-collapse" data-target-2=".side-collapse-container" type="button" class="navbar-toggle pull-left">
+		          <span class="icon-bar"></span>
+		          <span class="icon-bar"></span>
+		          <span class="icon-bar"></span>
+		        </button>
+		        <a class="navbar-brand" id="nav-brand" href="#">TUTORS</a>
+		      </div>
+		      <div id="side-menu" class="side-collapse in">
+		        <nav role="navigation" class="navbar-collapse">
+		          <ul class="nav navbar-nav navbar-right">
+		            <li><a href="#">How It Works</a></li>
+		            <li><a href="/teacher">Become a Tutor</a></li>
+		            <% if(!user_signed_in?) %>
+		              <li><a href="#"  data-toggle="modal" data-target="#ModalSignUp" >Sign Up</a></li>
+		              <li><a href="#" data-toggle="modal" data-target="#ModalLogin" >Login</a></li>
+		            <% else %>
+		              <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+		            <% end %>
+		          </ul>
+		        </nav>
+		      </div>
+		    </div>
+	  </div> 
+
+	</div>
+
+	<div class="container-fluid teachers">
+		<h1>Find a Tutor!</h1>
+		<p>Browse high-quality tutors. Whether you are into in-person or online tutoring. See their ratings, schedule or send a message. </p>
+	</div>
+
+
+
+
+
+
+	<div class="container">
+	  
+	<!--     <hgroup class="mb20">
+			<h1>Search Results</h1>
+			<h2 class="lead"><strong class="text-danger">3</strong> results were found for the search for <strong class="text-danger">Lorem</strong></h2>								
+		</hgroup> -->
+
+	    <section class="col-xs-12 col-sm-6 col-md-12 results">
+			<article class="search-result row">
+				<div class="col-xs-12 col-sm-12 col-md-3">
+					<a href="#" title="Lorem ipsum" class="thumbnail"><img src="http://lorempixel.com/250/140/people" alt="Lorem ipsum" /></a>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-2">
+					<ul class="meta-search">
+						<li><i class="glyphicon glyphicon-calendar"></i> <span>02/15/2014</span></li>
+						<li><i class="glyphicon glyphicon-time"></i> <span>4:28 pm</span></li>
+						<li><i class="glyphicon glyphicon-tags"></i> <span>People</span></li>
+					</ul>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-7 excerpet">
+					<h3><a href="#" title="">Voluptatem, exercitationem, suscipit, distinctio</a></h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, exercitationem, suscipit, distinctio, qui sapiente aspernatur molestiae non corporis magni sit sequi iusto debitis delectus doloremque.</p>						
+	                <span class="plus"><a href="#" title="Lorem ipsum"><i class="glyphicon glyphicon-plus"></i></a></span>
+				</div>
+				<span class="clearfix borda"></span>
+			</article>
+
+	        <article class="search-result row">
+				<div class="col-xs-12 col-sm-12 col-md-3">
+					<a href="#" title="Lorem ipsum" class="thumbnail"><img src="http://lorempixel.com/250/140/food" alt="Lorem ipsum" /></a>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-2">
+					<ul class="meta-search">
+						<li><i class="glyphicon glyphicon-calendar"></i> <span>02/13/2014</span></li>
+						<li><i class="glyphicon glyphicon-time"></i> <span>8:32 pm</span></li>
+						<li><i class="glyphicon glyphicon-tags"></i> <span>Food</span></li>
+					</ul>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-7">
+					<h3><a href="#" title="">Voluptatem, exercitationem, suscipit, distinctio</a></h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, exercitationem, suscipit, distinctio, qui sapiente aspernatur molestiae non corporis magni sit sequi iusto debitis delectus doloremque.</p>						
+	                <span class="plus"><a href="#" title="Lorem ipsum"><i class="glyphicon glyphicon-plus"></i></a></span>
+				</div>
+				<span class="clearfix borda"></span>
+			</article>
+
+			<article class="search-result row">
+				<div class="col-xs-12 col-sm-12 col-md-3">
+					<a href="#" title="Lorem ipsum" class="thumbnail"><img src="http://lorempixel.com/250/140/sports" alt="Lorem ipsum" /></a>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-2">
+					<ul class="meta-search">
+						<li><i class="glyphicon glyphicon-calendar"></i> <span>01/11/2014</span></li>
+						<li><i class="glyphicon glyphicon-time"></i> <span>10:13 am</span></li>
+						<li><i class="glyphicon glyphicon-tags"></i> <span>Sport</span></li>
+					</ul>
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-7">
+					<h3><a href="#" title="">Voluptatem, exercitationem, suscipit, distinctio</a></h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, exercitationem, suscipit, distinctio, qui sapiente aspernatur molestiae non corporis magni sit sequi iusto debitis delectus doloremque.</p>						
+	                <span class="plus"><a href="#" title="Lorem ipsum"><i class="glyphicon glyphicon-plus"></i></a></span>
+				</div>
+				<span class="clearfix border"></span>
+			</article>			
+
+		</section>
+	</div>
+
 
 </div>
 
-<div class="container-fluid teachers">
-	<h1>Find a Tutor!</h1>
-	<p>Browse high-quality tutors. Whether you are into in-person or online tutoring. See their ratings, schedule or send a message. </p>
-</div>
 
-
-
-
-
-
-<div class="container">
-  
-<!--     <hgroup class="mb20">
-		<h1>Search Results</h1>
-		<h2 class="lead"><strong class="text-danger">3</strong> results were found for the search for <strong class="text-danger">Lorem</strong></h2>								
-	</hgroup> -->
-
-    <section class="col-xs-12 col-sm-6 col-md-12 results">
-		<article class="search-result row">
-			<div class="col-xs-12 col-sm-12 col-md-3">
-				<a href="#" title="Lorem ipsum" class="thumbnail"><img src="http://lorempixel.com/250/140/people" alt="Lorem ipsum" /></a>
-			</div>
-			<div class="col-xs-12 col-sm-12 col-md-2">
-				<ul class="meta-search">
-					<li><i class="glyphicon glyphicon-calendar"></i> <span>02/15/2014</span></li>
-					<li><i class="glyphicon glyphicon-time"></i> <span>4:28 pm</span></li>
-					<li><i class="glyphicon glyphicon-tags"></i> <span>People</span></li>
-				</ul>
-			</div>
-			<div class="col-xs-12 col-sm-12 col-md-7 excerpet">
-				<h3><a href="#" title="">Voluptatem, exercitationem, suscipit, distinctio</a></h3>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, exercitationem, suscipit, distinctio, qui sapiente aspernatur molestiae non corporis magni sit sequi iusto debitis delectus doloremque.</p>						
-                <span class="plus"><a href="#" title="Lorem ipsum"><i class="glyphicon glyphicon-plus"></i></a></span>
-			</div>
-			<span class="clearfix borda"></span>
-		</article>
-
-        <article class="search-result row">
-			<div class="col-xs-12 col-sm-12 col-md-3">
-				<a href="#" title="Lorem ipsum" class="thumbnail"><img src="http://lorempixel.com/250/140/food" alt="Lorem ipsum" /></a>
-			</div>
-			<div class="col-xs-12 col-sm-12 col-md-2">
-				<ul class="meta-search">
-					<li><i class="glyphicon glyphicon-calendar"></i> <span>02/13/2014</span></li>
-					<li><i class="glyphicon glyphicon-time"></i> <span>8:32 pm</span></li>
-					<li><i class="glyphicon glyphicon-tags"></i> <span>Food</span></li>
-				</ul>
-			</div>
-			<div class="col-xs-12 col-sm-12 col-md-7">
-				<h3><a href="#" title="">Voluptatem, exercitationem, suscipit, distinctio</a></h3>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, exercitationem, suscipit, distinctio, qui sapiente aspernatur molestiae non corporis magni sit sequi iusto debitis delectus doloremque.</p>						
-                <span class="plus"><a href="#" title="Lorem ipsum"><i class="glyphicon glyphicon-plus"></i></a></span>
-			</div>
-			<span class="clearfix borda"></span>
-		</article>
-
-		<article class="search-result row">
-			<div class="col-xs-12 col-sm-12 col-md-3">
-				<a href="#" title="Lorem ipsum" class="thumbnail"><img src="http://lorempixel.com/250/140/sports" alt="Lorem ipsum" /></a>
-			</div>
-			<div class="col-xs-12 col-sm-12 col-md-2">
-				<ul class="meta-search">
-					<li><i class="glyphicon glyphicon-calendar"></i> <span>01/11/2014</span></li>
-					<li><i class="glyphicon glyphicon-time"></i> <span>10:13 am</span></li>
-					<li><i class="glyphicon glyphicon-tags"></i> <span>Sport</span></li>
-				</ul>
-			</div>
-			<div class="col-xs-12 col-sm-12 col-md-7">
-				<h3><a href="#" title="">Voluptatem, exercitationem, suscipit, distinctio</a></h3>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, exercitationem, suscipit, distinctio, qui sapiente aspernatur molestiae non corporis magni sit sequi iusto debitis delectus doloremque.</p>						
-                <span class="plus"><a href="#" title="Lorem ipsum"><i class="glyphicon glyphicon-plus"></i></a></span>
-			</div>
-			<span class="clearfix border"></span>
-		</article>			
-
-	</section>
-</div>

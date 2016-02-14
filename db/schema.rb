@@ -11,24 +11,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160205090552) do
+ActiveRecord::Schema.define(version: 20160214145200) do
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  limit: 255, default: "", null: false
-    t.string   "encrypted_password",     limit: 255, default: "", null: false
+    t.string   "email",                  limit: 255,   default: "", null: false
+    t.string   "encrypted_password",     limit: 255,   default: "", null: false
     t.string   "reset_password_token",   limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          limit: 4,   default: 0,  null: false
+    t.integer  "sign_in_count",          limit: 4,     default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip",     limit: 255
     t.string   "last_sign_in_ip",        limit: 255
-    t.datetime "created_at",                                      null: false
-    t.datetime "updated_at",                                      null: false
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
     t.string   "provider",               limit: 255
     t.string   "uid",                    limit: 255
     t.string   "image",                  limit: 255
+    t.string   "type",                   limit: 255
+    t.string   "phone",                  limit: 255
+    t.string   "from",                   limit: 255
+    t.string   "first_name",             limit: 255
+    t.string   "last_name",              limit: 255
+    t.string   "skype",                  limit: 255
+    t.string   "location",               limit: 255
+    t.string   "is_trail",               limit: 255
+    t.text     "description",            limit: 65535
+    t.string   "video_url",              limit: 255
+    t.integer  "price",                  limit: 4
+    t.string   "platform",               limit: 255
+    t.string   "time_zone",              limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

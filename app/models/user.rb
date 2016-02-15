@@ -5,6 +5,15 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, 
          :omniauthable
 
+  has_many :lessons, dependent: :destroy, 
+              foreign_key: "student_id"
+  has_many :reverse_lessons, dependent: :destroy, 
+                  foreign_key: "teacher_id", 
+                  class_name: "Lesson"
+  has_many :students, through: :lessons
+  has_many :teachers, through: :reverse_lessons
+
+
   def self.from_omniauth(auth)
     user = User.where(email: auth.info.email).first
 

@@ -5,6 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, 
          :omniauthable
 
+  has_many :listings
+  has_many :appointments
+
   def self.from_omniauth(auth)
     user = User.where(email: auth.info.email).first
 

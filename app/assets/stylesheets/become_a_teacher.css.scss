@@ -7,22 +7,41 @@
 		text-align: center;
 		margin-bottom: 0;
 	}
-	
-	.main {
-		background-color: #F1F1F1;
-	}
 
 	input, textarea {
 		border-radius: 0;
 	}
+	
+	.layout-top {
+		min-height: 650px;
+		text-align: center;
+		padding: 35px;
+		background-image: image-url("teacher-application.jpg");
+		background-size: cover;
+		background-repeat: no-repeat;
+	} 
 
-	#application, textarea {
-		width: 400px;
+	.teacher-application-text {
+		display: inline-block;
+		width: 42%;
+		text-align: left;
+		vertical-align: top;
+		margin-left: 36px;
+		color: #fff;
+		text-shadow: #000 2px 2px 15px;
 	}
 
-	#tell-about {
+	.teacher-application-text h1 {
+		margin-bottom: 50px;
+		font-size: 48px;
+	}
+	.teacher-registration-form-container {
+		width: 350px;
 		margin: 0 auto;
-		width: 400px;
+		display: inline-block;
+		background-color: #F1F1F1;
+		padding: 35px;
+		position: absolute;
 	}
 
 	#application {
@@ -37,9 +56,13 @@
 	}
 
 	.btn-apply {
-		width: 400px;
-		background-color: #00959f;
+		background-color: #00bce4;
 		color: #fff;
-		border-radius: 0;
+		border-radius: 2px;
+		width: 100%;
+	}
+
+	#language-select {
+		width: 100%;
 	}
 }

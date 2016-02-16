@@ -51,4 +51,7 @@ $(function() {
   sideslider.click(function(event){
       $(sel).toggleClass('in');
   });
+  $('#side-menu-collapse').click(function(event){
+      $(sel).toggleClass('in');
+  });
 });

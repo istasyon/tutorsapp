@@ -59,49 +59,7 @@ button.navbar-toggle.pull-left {
 
 
 
-@media only screen and (max-width: 767px) {
-  
-  .navbar {
-  background-color: rgba(0,0,0,.2);
-  border-bottom: 1px solid #adadad; 
-  } 
 
-  .side-collapse-container{
-      width: 100%;
-      position: relative;
-      left: 0;
-      transition: left .4s;
-  }
-
-  .side-collapse-container.out{
-      left: 200px;
-  }
-
-  .side-collapse {
-      top: 50px;
-      bottom: 0;
-      left: 0;
-      width: 200px;
-      position: fixed;
-      overflow: hidden;
-      background-color: #202024;
-  }
-
-  .side-collapse.in {
-      width: 0;
-      background-color: #202024;
-  }
-
-  .navbar-brand {
-    padding-left: 0;
-    position: absolute;
-    width: 30%;
-    left: 0;
-    top: 0;
-    text-align: center;
-    margin-left: 40%;
-  }
-}
 
 /* Auth Modal */
 
@@ -162,74 +120,7 @@ button.navbar-toggle.pull-left {
 
 
 
-@media only screen and (min-width: 767px) {
-  .modal.auth-modal .modal-dialog {
-    width: 315px;
-    position: relative;
-  }
-  .modal.auth-modal .modal-dialog .modal-content {
-      border-radius: 2px;
-  }
-}
-@media only screen and (max-height: 425px) {
-   .modal {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    overflow: hidden;
-  }
 
-  .modal.auth-modal .modal-dialog  {
-    position: fixed;
-    margin: 0;
-    width: 100%;
-    height: 100%;
-    padding: 0;
-  }
-
-  .modal.auth-modal .modal-dialog .modal-content {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    border: 2px solid #3c7dcf;
-    border-radius: 0;
-    box-shadow: none;
-  } 
-}
-@media only screen and (max-width: 767px) {
-  .modal {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    overflow: hidden;
-  }
-
-  .modal-dialog {
-    position: fixed;
-    margin: 0;
-    width: 100%;
-    height: 100%;
-    padding: 0;
-  }
-
-  .modal-content {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    border: 2px solid #3c7dcf;
-    border-radius: 0;
-    box-shadow: none;
-  }
-
-}
 
 /*Login Modal*/
 .email-row {
@@ -330,36 +221,7 @@ button.navbar-toggle.pull-left {
   border: none;
 }
 
-@media only screen and (max-width: 767px) {
-  .home-header h1.container {
-    font-size: 32px;
-    top: 40%;
-  }
-  .home-header h2.container {
-    font-size: 18px;
-    top: 68%;
-  }
-  .btn-group {
-    position: relative;
-    bottom: 75px;
-    width: 100%;
-  }
-  .btn-group .language-button {
-    width: 80%;
-  }
-  .btn-group .search-button {
-    background-color: #070716;
-    color: #fff;
-  }
 
-  button.btn.btn-default.search-button {
-    margin-left: -8px;
-  }
-
-  div.xs-buttons {
-    text-align:center;
-  }
-}
 /*  how it works section */
 
 .how {
@@ -416,3 +278,148 @@ button.navbar-toggle.pull-left {
   color: #fff;
 }
 
+/* Media Queries */
+@media only screen and (max-width: 767px) {
+  
+  .navbar {
+    background-color: rgba(0,0,0,.2);
+    border-bottom: 1px solid #adadad; 
+  } 
+  #side-menu-collapse {
+    color: #fff;
+  }
+  
+  .side-collapse {
+      top: 0;
+      left: 0;
+      width: 85%;
+      height: 100%;
+      position: fixed;
+      overflow: hidden;
+      background-color: #202024;
+  }
+
+  .side-collapse.in {
+      width: 0;
+      background-color: #202024;
+  }
+
+  .side-menu-container {
+    padding: 16px;
+  }
+  
+  .navbar-collapse {
+    border: none;
+    box-shadow: none;
+  }
+  .navbar-brand {
+    padding-left: 0;
+    position: absolute;
+    width: 30%;
+    left: 0;
+    top: 0;
+    text-align: center;
+    margin-left: 40%;
+  }
+  .home-header h1.container {
+    font-size: 32px;
+    top: 40%;
+  }
+
+  .home-header h2.container {
+    font-size: 18px;
+    top: 68%;
+  }
+  .btn-group {
+    position: relative;
+    bottom: 75px;
+    width: 100%;
+  }
+  .btn-group .language-button {
+    width: 80%;
+  }
+  .btn-group .search-button {
+    background-color: #070716;
+    color: #fff;
+  }
+
+  button.btn.btn-default.search-button {
+    margin-left: -8px;
+  }
+
+  div.xs-buttons {
+    text-align:center;
+  }
+
+  .modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+  }
+
+  .modal-dialog {
+    position: fixed;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+  }
+
+  .modal-content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border: 2px solid #3c7dcf;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
+
+
+@media only screen and (min-width: 767px) {
+  .modal.auth-modal .modal-dialog {
+    width: 315px;
+    position: relative;
+  }
+  .modal.auth-modal .modal-dialog .modal-content {
+      border-radius: 2px;
+  }
+
+  #side-menu-collapse {
+    display: none;
+  }
+}
+@media only screen and (max-height: 425px) {
+   .modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+  }
+
+  .modal.auth-modal .modal-dialog  {
+    position: fixed;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+  }
+
+  .modal.auth-modal .modal-dialog .modal-content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border: 2px solid #3c7dcf;
+    border-radius: 0;
+    box-shadow: none;
+  } 
+}

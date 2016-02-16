@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160215115943) do
+ActiveRecord::Schema.define(version: 20160216191436) do
 
   create_table "appointments", force: :cascade do |t|
     t.datetime "created_at",           null: false
@@ -23,15 +23,19 @@ ActiveRecord::Schema.define(version: 20160215115943) do
   add_index "appointments", ["listing_id"], name: "index_appointments_on_listing_id", using: :btree
   add_index "appointments", ["user_id"], name: "index_appointments_on_user_id", using: :btree
 
-  create_table "lessons", force: :cascade do |t|
-    t.integer  "student_id", limit: 4
-    t.integer  "teacher_id", limit: 4
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+  create_table "languages", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
-  add_index "lessons", ["student_id"], name: "index_lessons_on_student_id", using: :btree
-  add_index "lessons", ["teacher_id"], name: "index_lessons_on_teacher_id", using: :btree
+  create_table "languages_users", id: false, force: :cascade do |t|
+    t.integer "user_id",     limit: 4
+    t.integer "language_id", limit: 4
+  end
+
+  add_index "languages_users", ["language_id"], name: "index_languages_users_on_language_id", using: :btree
+  add_index "languages_users", ["user_id"], name: "index_languages_users_on_user_id", using: :btree
 
   create_table "listings", force: :cascade do |t|
     t.text     "description", limit: 65535

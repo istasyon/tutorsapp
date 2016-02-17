@@ -54,4 +54,13 @@ $(function() {
   $('#side-menu-collapse').click(function(event){
       $(sel).toggleClass('in');
   });
+
+  $(window).scroll(function() {
+    if ($(document).scrollTop() > 250) {
+      $(".navbar").addClass("scrolled");
+    } else {
+      $(".navbar").removeClass("scrolled");
+    }
+  });
+
 });

@@ -37,6 +37,16 @@ ActiveRecord::Schema.define(version: 20160216191436) do
   add_index "languages_users", ["language_id"], name: "index_languages_users_on_language_id", using: :btree
   add_index "languages_users", ["user_id"], name: "index_languages_users_on_user_id", using: :btree
 
+  create_table "lessons", force: :cascade do |t|
+    t.integer  "student_id", limit: 4
+    t.integer  "teacher_id", limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "lessons", ["student_id"], name: "index_lessons_on_student_id", using: :btree
+  add_index "lessons", ["teacher_id"], name: "index_lessons_on_teacher_id", using: :btree
+
   create_table "listings", force: :cascade do |t|
     t.text     "description", limit: 65535
     t.string   "video_url",   limit: 255

@@ -23,8 +23,18 @@ html,body {
    
   ul.nav.navbar-nav li a, 
   ul.nav.navbar-nav li a:hover,
-  #nav-brand,button.navbar-toggle.pull-left span.icon-bar {
+  #nav-brand,
+  button.navbar-toggle.pull-left span.icon-bar {
     color: #000;
+  }
+  button.navbar-toggle.pull-left span.icon-bar {
+    background-color: #000;
+  }
+  @media only screen and (max-width: 767px) {
+    ul.nav.navbar-nav li a, 
+    ul.nav.navbar-nav li a:hover {
+      color: #fff;
+    }   
   }
 }
 

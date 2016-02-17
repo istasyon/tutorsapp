@@ -14,11 +14,11 @@
             <a id="side-menu-collapse"><i class="fa fa-times fa-2x"></i></a>
             <ul class="nav navbar-nav navbar-right">
               <li><a href="#howitworks">How It Works</a></li>
-              <li><a href="/teacher">Become a Tutor</a></li>
               <% if(!user_signed_in?) %>
                 <li><a href="#"  data-toggle="modal" data-target="#ModalSignUp" >Sign Up</a></li>
                 <li><a href="#" data-toggle="modal" data-target="#ModalLogin" >Login</a></li>
               <% else %>
+                <li><a href="/teacher">Become a Tutor</a></li>              
                 <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
               <% end %>
             </ul>

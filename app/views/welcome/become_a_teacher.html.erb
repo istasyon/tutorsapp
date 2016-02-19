@@ -28,6 +28,7 @@
 				  <div class="form-group">
 				    <%= f.text_field :time_zone, class: "form-control", id: "time_zone", placeholder: "Your Time Zone" %>
 				  </div>
+				  <%= f.hidden_field :type, value: "Teacher" %>
 				  <div class="submit-application">
 				  	  <%= f.submit "Submit", class: "btn btn-lg btn-apply" %>  	
 				  </div>	  

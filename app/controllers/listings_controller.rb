@@ -1,9 +1,10 @@
 class ListingsController < ApplicationController
   
 	def welcome_search
-		@teachers = Teacher.where(location: "gelen_location")
-		@teachers.each do |t|
-			@results << t.listings.where(language_id: "gelen_id")
+		@teachers = Teacher.where(location: params[:location])
+		@results = []
+    @teachers.each do |t|
+			@results << t.listings.where(language_id: params[:language_id])
 		end
 	end
 

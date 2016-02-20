@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
 
   has_many :listings
   has_many :appointments
+  has_many :reviews
   has_and_belongs_to_many :languages
 
   def self.from_omniauth(auth)

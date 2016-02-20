@@ -1,8 +1,18 @@
 Rails.application.routes.draw do
   
+  get 'users/dashboard'
+
+  get 'listings/index'
+
+  get 'listings/new'
+
+  get 'listings/edit'
+
+  get 'listings/show'
+
   root 'welcome#home' 
   get 'teacher' => 'welcome#become_a_teacher'
-  get 'search' => 'welcome#search_results' 
+  get 'search' => 'listings#search' 
   
   devise_for :users,
              path: '',

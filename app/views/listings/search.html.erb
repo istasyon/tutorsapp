@@ -1,10 +1,9 @@
 <div class="test-results">
-<% @results.each do |a| %>
-	<div>
-		<%= a.first_name %>
-	</div>
-<% end %>
-
+	<% @results.each do |a| %>
+		<div>
+			<%= "#{a.first_name} #{a.last_name} Email: #{a.email}" %>
+		</div>
+	<% end %>
 </div>
 
 

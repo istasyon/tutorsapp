@@ -1,11 +1,7 @@
 class ListingsController < ApplicationController
   
 	def welcome_search
-		@teachers = Teacher.where(location: params[:location])
-		@results = []
-    @teachers.each do |t|
-			@results << t.listings.where(language_id: params[:language_id])
-		end
+    @results = Listing.where(language_id: params[:language_id], user_id: User.where(location: params[:location])).includes(:user)
 	end
 
   def index

@@ -1,9 +1,12 @@
 <div class="test-results">
-	<% @results.each do |a| %>
-		<div>
-			<%= "#{a.first_name} #{a.last_name} Email: #{a.email}" %>
-		</div>
-	<% end %>
+	<div class="container">
+		<%= @results.each do |a| %>
+			<div class="well well-lg">
+				<%= a.id %>
+				<%= a.user.first_name %>
+			</div>
+		<% end %>
+	</div>
 </div>
 
 

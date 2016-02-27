@@ -2,13 +2,7 @@ Rails.application.routes.draw do
   
   get 'users/dashboard'
 
-  get 'listings/index'
-
-  get 'listings/new'
-
-  get 'listings/edit'
-
-  get 'listings/show'
+  resources :listings
 
   root 'welcome#home' 
   get 'teacher' => 'welcome#become_a_teacher'

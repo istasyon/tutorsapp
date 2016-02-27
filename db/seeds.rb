@@ -9,20 +9,28 @@
 
 # languages = Language.create([{ name: 'English' }, { name: 'German' },
 #  { name: 'Turk' }, { name: 'German' }, { name: 'German' }, { name: 'German' }])
+Language.create!(name: "English")
 50.times do |n|
   first_name  = Faker::Name.first_name
   last_name = Faker::Name.last_name
   email = "example-#{n+1}@railstutorial.org"
   password = "12345678"
   location = "ankara"
+  platform = ["inperson", "online", "both"]
   a = User.create!(first_name:  first_name,
-  			   last_name: last_name,
-  			   location: location,
+           last_name: last_name,
+           location: location,
                email: email,
                type: "Teacher",
                password:              password,
                password_confirmation: password)
-  a.listings.create!(language_id: 1)
+  a.listings.create!(language_id: 1, 
+                    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                    Amet aspernatur illum debitis eaque harum maxime minus incidunt commodi 
+                    ab consectetur enim veniam officiis nulla pariatur, quas itaque et quo cupiditate!",
+                    price: 10+rand(40),
+                    is_trial: rand(2),
+                    platform: platform[rand(3)])
 end
 50.times do |n|
   first_name  = Faker::Name.first_name
@@ -30,6 +38,7 @@ end
   email = "example-#{n+52}@railstutorial.org"
   password = "12345678"
   location = "istanbul"
+  platform = ["inperson", "online", "both"]
   a = User.create!(first_name:  first_name,
   			   last_name: last_name,
   			   location: location,
@@ -37,5 +46,12 @@ end
                type: "Teacher",
                password:              password,
                password_confirmation: password)
-  a.listings.create!(language_id: 1)
+  a.listings.create!(language_id: 1, 
+                    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                    Amet aspernatur illum debitis eaque harum maxime minus incidunt commodi 
+                    ab consectetur enim veniam officiis nulla pariatur, quas itaque et quo cupiditate!",
+                    price: 10+rand(40),
+                    is_trial: rand(2),
+                    platform: platform[rand(3)])
+
 end

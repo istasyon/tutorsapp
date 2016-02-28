@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   
-  get 'appointments/new'
-
-  get 'appointments/edit'
+  devise_for :users,
+             path: '',
+             path_names: { sign_in: 'login', sign_out: 'logout', edit: 'profile' },
+             controllers: { omniauth_callbacks: 'omniauth_callbacks',
+                            registrations: 'registrations' }
 
   get 'users/dashboard'
   
@@ -15,13 +17,10 @@ Rails.application.routes.draw do
   get 'teacher' => 'welcome#become_a_teacher'
   get 'search' => 'listings#search' 
   
-  devise_for :users,
-             path: '',
-             path_names: { sign_in: 'login', sign_out: 'logout', edit: 'profile' },
-             controllers: { omniauth_callbacks: 'omniauth_callbacks',
-                            registrations: 'registrations' }
   
-
+  resources :conversations, only: [:index, :create] do
+    resources :messages, only: [:index, :create]
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

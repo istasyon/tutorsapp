@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160228133213) do
+ActiveRecord::Schema.define(version: 20160228145156) do
 
   create_table "appointments", force: :cascade do |t|
     t.datetime "created_at",           null: false
@@ -24,6 +24,13 @@ ActiveRecord::Schema.define(version: 20160228133213) do
 
   add_index "appointments", ["listing_id"], name: "index_appointments_on_listing_id", using: :btree
   add_index "appointments", ["user_id"], name: "index_appointments_on_user_id", using: :btree
+
+  create_table "conversations", force: :cascade do |t|
+    t.integer  "sender_id",    limit: 4
+    t.integer  "recipient_id", limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "languages", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -53,6 +60,17 @@ ActiveRecord::Schema.define(version: 20160228133213) do
 
   add_index "listings", ["language_id"], name: "index_listings_on_language_id", using: :btree
   add_index "listings", ["user_id"], name: "index_listings_on_user_id", using: :btree
+
+  create_table "messages", force: :cascade do |t|
+    t.text     "content",         limit: 65535
+    t.integer  "conversation_id", limit: 4
+    t.integer  "user_id",         limit: 4
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+  end
+
+  add_index "messages", ["conversation_id"], name: "index_messages_on_conversation_id", using: :btree
+  add_index "messages", ["user_id"], name: "index_messages_on_user_id", using: :btree
 
   create_table "reviews", force: :cascade do |t|
     t.text     "comment",        limit: 65535
@@ -99,6 +117,8 @@ ActiveRecord::Schema.define(version: 20160228133213) do
   add_foreign_key "appointments", "users"
   add_foreign_key "listings", "languages"
   add_foreign_key "listings", "users"
+  add_foreign_key "messages", "conversations"
+  add_foreign_key "messages", "users"
   add_foreign_key "reviews", "appointments"
   add_foreign_key "reviews", "users"
 end

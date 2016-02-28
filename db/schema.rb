@@ -11,13 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160220204800) do
+ActiveRecord::Schema.define(version: 20160228133213) do
 
   create_table "appointments", force: :cascade do |t|
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
     t.integer  "user_id",    limit: 4
     t.integer  "listing_id", limit: 4
+    t.datetime "starts_at"
+    t.datetime "ends_at"
   end
 
   add_index "appointments", ["listing_id"], name: "index_appointments_on_listing_id", using: :btree

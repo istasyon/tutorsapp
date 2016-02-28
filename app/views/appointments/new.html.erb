@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>Book Now</h1>
+  <%= form_for [@listing, @appointment] do |f| %>
+  <%= f.label :starts_at, "Select Start Time "%>
+  <%= f.date_select :starts_at %>
+  <%= f.time_select :starts_at, :ignore_date => true %>
+  <br>
+
+  <%= f.label :ends_at, "Select End Time "%>
+  <%= f.date_select :ends_at %>
+  <%= f.time_select :ends_at, :ignore_date => true %>
+  <br>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.submit %>
+  <% end %>
+
+
+
+</div>
+
+

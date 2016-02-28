@@ -5,7 +5,8 @@
 	<%= link_to "Send Message", '#', "data-toggle" => "modal", "data-target" => "#ModalSignUp",class: "btn btn-success" %><br>
 	<%= "Trial course available: #{@listing.is_trial}" %><br>
 	<%= "Platform: #{@listing.platform}" %><br>
-	<%= "Lives in: #{@user.location}" %>
+	<%= "Lives in: #{@user.location}" %><br>
+	<%= link_to "Book Now", new_listing_appointment_path(@listing) ,class: "btn btn-success" %><br>
 </div>
 
 

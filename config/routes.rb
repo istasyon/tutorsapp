@@ -1,8 +1,15 @@
 Rails.application.routes.draw do
   
-  get 'users/dashboard'
+  get 'appointments/new'
 
-  resources :listings
+  get 'appointments/edit'
+
+  get 'users/dashboard'
+  
+
+  resources :listings do 
+    resources :appointments
+  end
 
   root 'welcome#home' 
   get 'teacher' => 'welcome#become_a_teacher'

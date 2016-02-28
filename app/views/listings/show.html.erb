@@ -1,2 +1,12 @@
-<h1>Listings#show</h1>
-<p>Find me in app/views/listings/show.html.erb</p>
+<div class="container">
+	<%= "#{@user.first_name} #{@user.last_name}" %><br>
+	<%= "Description: #{@listing.description}" %><br>
+	<%= "Price: #{@listing.price} $" %><br>
+	<%= link_to "Send Message", '#', "data-toggle" => "modal", "data-target" => "#ModalSignUp",class: "btn btn-success" %><br>
+	<%= "Trial course available: #{@listing.is_trial}" %><br>
+	<%= "Platform: #{@listing.platform}" %><br>
+	<%= "Lives in: #{@user.location}" %>
+</div>
+
+
+  <%= render "shared/registration_modals" %>

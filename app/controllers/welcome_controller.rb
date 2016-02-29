@@ -9,7 +9,5 @@ class WelcomeController < ApplicationController
   def become_a_teacher
   	@user = current_user
   end
-  def search_results
-  end
   
 end

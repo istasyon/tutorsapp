@@ -15,8 +15,8 @@
     <div class="form-container">
       <div class="well well-lg col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 hidden-xs">
         <%= form_tag(search_path, :method => "get", id: "search-form") do %>
-          <%= text_field_tag :location, params[:location], placeholder: "Location" %>
-          <%= text_field_tag :language_id, params[:language_id], placeholder: "Language" %>
+          <%= select_tag :location, options_for_select(@locations) %>
+          <%= select_tag :language_id, options_for_select(@languages.collect{ |l| [l.name, l.id] }) %>
           <%= submit_tag "Search" %>
         <% end %>
       </div>

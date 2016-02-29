@@ -1,5 +1,20 @@
 #home_page {
 
+	/*	Search form */
+	.btn-search {
+		background-color: #4CAF50;
+		color: #fff;
+		border-radius: 0;
+	}
+	
+
+	@media only screen and (min-width: 801px) {
+
+		select {
+			width: 255px;
+		}
+	}
+
 	/* Navigation */
 
 	.navbar.scrolled {

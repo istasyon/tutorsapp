@@ -22,6 +22,7 @@ Language.create!(name: "English")
            location: location,
                email: email,
                type: "Teacher",
+               image: Faker::Avatar.image,
                password:              password,
                password_confirmation: password)
   a.listings.create!(language_id: 1, 
@@ -44,6 +45,7 @@ end
   			   location: location,
                email: email,
                type: "Teacher",
+               image: Faker::Avatar.image,
                password:              password,
                password_confirmation: password)
   a.listings.create!(language_id: 1, 

@@ -5,22 +5,45 @@
 @import "search_results";
 @import "home";
 
-    /* Basic Page CSS */
+/* Basic Page CSS */
   html,body {
     height:100%;
     font-size: 16px;
   }
 
-  .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
-      background-color: transparent; 
-  } /*prevent background color on focus*/
 
-  .navbar-collapse .navbar-right li a:focus, nav li a:hover {
-    border-color:  none;
-    box-shadow: none;
-    outline: none;
+/*   Shared navbar partial */  
+#shared-navbar {
+  background-color: #4D90FE;
+  margin-bottom: 0;
+
+  ul.nav.navbar-nav li a {
+    color: #FFFFFF;
+    font-size:  1.14286rem;
+  }
+
+  ul.nav.navbar-nav li a:hover {
     color: #fff;
-  } /*prevent outline on focus*/
+  }  
+
+  .navbar-brand {
+    color: #fff;
+    font-size: 25px;
+    font-weight: bold;
+  }
+}
+
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+    background-color: transparent; 
+} /*prevent background color on focus*/
+
+.navbar-collapse .navbar-right li a:focus, nav li a:hover {
+  border-color:  none;
+  box-shadow: none;
+  outline: none;
+  color: #fff;
+} /*prevent outline on focus*/
+
 
 /* Auth Modal */
 

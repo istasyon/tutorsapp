@@ -1,4 +1,28 @@
 #search-results {
-	
+	#search-filters {
+		text-align: center;
+		height: 100px;
+		padding-top: 20px;
+
+		.form-control {
+			border-radius: 0;
+		}
+
+		.btn-filter {
+			border-radius: 0;
+			background-color: #E91E63;
+			color: #fff;
+		}
+	}
+
+	#tutor-list {
+		background-color: #F1F1F1;
+		padding-top: 30px;
+
+		.well-lg {
+			background-color: #fff;
+			border-radius: 0;
+		}
+	}
 }
 

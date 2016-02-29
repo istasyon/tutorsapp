@@ -15,9 +15,9 @@ gem 'omniauth-facebook'
 gem 'omniauth-oauth2', '~> 1.3.1'
 gem 'omniauth-google-oauth2'
 gem "font-awesome-rails"
+gem 'faker'
 
 group :development, :test do
-  gem 'faker'
   gem 'dotenv-rails'
   gem 'byebug'
   gem 'mysql2', '~> 0.3.10'

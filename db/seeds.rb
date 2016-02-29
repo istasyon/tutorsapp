@@ -15,7 +15,7 @@ Language.create!(name: "English")
   last_name = Faker::Name.last_name
   email = "example-#{n+1}@railstutorial.org"
   password = "12345678"
-  location = "ankara"
+  location = "Ankara"
   platform = ["inperson", "online", "both"]
   a = User.create!(first_name:  first_name,
            last_name: last_name,
@@ -37,7 +37,7 @@ end
   last_name = Faker::Name.last_name
   email = "example-#{n+52}@railstutorial.org"
   password = "12345678"
-  location = "istanbul"
+  location = "Istanbul"
   platform = ["inperson", "online", "both"]
   a = User.create!(first_name:  first_name,
   			   last_name: last_name,

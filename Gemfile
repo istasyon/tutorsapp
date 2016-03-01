@@ -16,6 +16,9 @@ gem 'omniauth-oauth2', '~> 1.3.1'
 gem 'omniauth-google-oauth2'
 gem "font-awesome-rails"
 gem 'faker'
+gem "private_pub"
+gem "thin"
+
 
 group :development, :test do
   gem 'dotenv-rails'

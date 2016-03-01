@@ -20,7 +20,7 @@
 					<%= truncate(a.description, length: 250) %><br>
 					<span class="price-label">Price:</span><span class="price"><%= " #{a.price} $" %></span><br>
 					<%= link_to "View Schedule", listing_path(a), class: "btn btn-schedule" %>
-					<%= link_to "Send Message", '#', "data-toggle" => "modal", "data-target" => "#ModalSignUp",class: "btn btn-message" %>			
+					<%= link_to "Send Message", conversations_path(sender_id: current_user.id, recipient_id: a.user.id), method: 'post', class: "btn btn-message" %>			
 				</div>
 			<% end %>
 		</div>

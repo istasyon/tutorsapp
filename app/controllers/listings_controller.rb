@@ -12,7 +12,7 @@ class ListingsController < ApplicationController
   	#Refactor for one query
   	@results = welcome_search
     @languages = Language.all
-    @locations = User.uniq.pluck(:location)
+    @locations = Teacher.uniq.pluck(:location)
   	# Add Filtering based on
   	# from, location,
   	# language_id, price, platform, is_trial

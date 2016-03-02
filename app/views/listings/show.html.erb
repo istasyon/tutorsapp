@@ -1,12 +1,24 @@
-<div class="container">
-	<%= "#{@user.first_name} #{@user.last_name}" %><br>
-	<%= "Description: #{@listing.description}" %><br>
-	<%= "Price: #{@listing.price} $" %><br>
-	<%= link_to "Send Message", '#', "data-toggle" => "modal", "data-target" => "#ModalSignUp",class: "btn btn-success" %><br>
-	<%= "Trial course available: #{@listing.is_trial}" %><br>
-	<%= "Platform: #{@listing.platform}" %><br>
-	<%= "Lives in: #{@user.location}" %><br>
-	<%= link_to "Book Now", new_listing_appointment_path(@listing) ,class: "btn btn-success" %><br>
+<%= render "shared/navbar" %>
+<div id="listings-show">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<%= image_tag @user.image, id: "user_image" %>
+			</div>
+			<div class="col-md-4">
+				<span class="fullname"><%= "#{@user.first_name} #{@user.last_name}" %><br></span>
+				<%= "Description: #{@listing.description}" %><br>
+				<%= "Lives in: #{@user.location}" %><br>
+			</div>
+			<div class="col-md-4 booking">	
+				<%= "Trial course available: #{@listing.is_trial}" %><br>
+				<%= "Price: #{@listing.price} $" %><br>
+				<%= "Platform: #{@listing.platform}" %><br>
+				<%= link_to "Send Message", '#', "data-toggle" => "modal", "data-target" => "#ModalSignUp",class: "btn btn-success" %>
+				<%= link_to "Book Now", new_listing_appointment_path(@listing) ,class: "btn btn-success" %><br>
+			</div>
+		</div>
+	</div>
 </div>
 
 

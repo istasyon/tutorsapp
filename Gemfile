@@ -18,7 +18,7 @@ gem "font-awesome-rails"
 gem 'faker'
 gem "private_pub"
 gem "thin"
-
+gem 'will_paginate', '~> 3.0.6'
 
 group :development, :test do
   gem 'dotenv-rails'

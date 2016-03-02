@@ -4,7 +4,7 @@ class WelcomeController < ApplicationController
 
   def home
   	@languages = Language.all
-  	@locations = User.uniq.pluck(:location)
+  	@locations = Teacher.uniq.pluck(:location)
   end
   def become_a_teacher
   	@user = current_user

@@ -19,6 +19,8 @@ gem 'faker'
 gem "private_pub"
 gem "thin"
 gem 'will_paginate', '~> 3.0.6'
+gem 'geocoder'
+
 
 group :development, :test do
   gem 'dotenv-rails'

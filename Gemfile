@@ -16,8 +16,6 @@ gem 'omniauth-oauth2', '~> 1.3.1'
 gem 'omniauth-google-oauth2'
 gem "font-awesome-rails"
 gem 'faker'
-gem "private_pub"
-gem "thin"
 gem 'will_paginate', '~> 3.0.6'
 gem 'geocoder'
 

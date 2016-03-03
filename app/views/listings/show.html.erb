@@ -14,8 +14,16 @@
 				<%= "Trial course available: #{@listing.is_trial}" %><br>
 				<%= "Price: #{@listing.price} $" %><br>
 				<%= "Platform: #{@listing.platform}" %><br>
+				
+				<% if current_user %>
+				<%= link_to "Book Now", new_listing_appointment_path(@listing) ,class: "btn btn-success"  %>
+				<%= link_to "Send Message", conversations_path(sender_id: current_user.id, recipient_id: @listing.user.id), method: 'post', class: "btn btn-success" %>
+				<% else %>
+				<%=  link_to "Book Now", '#', "data-toggle" => "modal", "data-target" => "#ModalSignUp",class: "btn btn-success" %>
 				<%= link_to "Send Message", '#', "data-toggle" => "modal", "data-target" => "#ModalSignUp",class: "btn btn-success" %>
-				<%= link_to "Book Now", new_listing_appointment_path(@listing) ,class: "btn btn-success" %><br>
+				<% end %>
+				<br>
+
 			</div>
 		</div>
 	</div>

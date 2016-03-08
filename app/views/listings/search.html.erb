@@ -15,7 +15,7 @@
 		<div class="container">
 			<% @results.each do |a| %>
 				<div class="well well-lg">
-					<%= image_tag a.user.image %>
+					<%= image_tag "#{a.user.image}?type=large" %>
 					<span class="name"><%= "#{a.user.first_name} #{a.user.last_name}" %></span><br>
 					<%= truncate(a.description, length: 250) %><br>
 					<span class="price-label">Price:</span><span class="price"><%= " #{a.price} $" %></span><br>

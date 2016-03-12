@@ -18,7 +18,7 @@ gem "font-awesome-rails"
 gem 'faker'
 gem 'will_paginate', '~> 3.0.6'
 gem 'geocoder'
-
+gem 'jquery-turbolinks'
 
 group :development, :test do
   gem 'dotenv-rails'

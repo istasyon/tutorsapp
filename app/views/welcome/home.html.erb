@@ -18,7 +18,11 @@
             <ul class="nav navbar-nav navbar-right">
               <li><a href="#howitworks">How It Works</a></li>
               <% if !current_user || (current_user && current_user.type != "Teacher") %>
-                <li><a href="/teacher">Become a Tutor</a></li>
+                <% if(user_signed_in?) %>
+                  <li><%= link_to "Become a Tutor", teacher_path %></li>
+                <% else %>              
+                  <li><a href="#" data-toggle="modal" data-target="#ModalLogin" >Become a Tutor</a></li>
+                <% end %>
               <% end %>
               <% if(!user_signed_in?) %>
                 <li><a href="#"  data-toggle="modal" data-target="#ModalSignUp" >Sign Up</a></li>

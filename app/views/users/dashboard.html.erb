@@ -1,3 +1,41 @@
-<h1>Users#dashboard</h1>
-<p>Find me in app/views/users/dashboard.html.erb</p>
-<%= link_to "Log out", destroy_user_session_path, method: :delete %>
+<%= render 'shared/navbar' %>
+<div id="dashboard">
+	<% if current_user.type == "Teacher" %>
+
+
+	<% else %>
+	<div class="container">
+		<div class="row">
+			<div class="leftbar col-md-4">
+				<div class="clearfix">
+				 	<div class="userimage">
+				 		<%= image_tag current_user.image, size: "120x120" %>
+				 	</div>
+				 	<h3> <%= current_user.first_name %></h3>
+				 	<h5> <%= current_user.location %></h5>
+				</div>
+				<div class="navigation">
+
+				</div>
+			 	
+			 	
+
+
+
+
+			</div>
+			<div class="content col-md-8">
+			TEST CONTENT
+
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<% end %>
+
+
+</div>
+

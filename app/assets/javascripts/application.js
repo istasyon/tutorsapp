@@ -64,4 +64,19 @@ $(function() {
     }
   });
 
+  //Change Nav Item Content Active
+
+  $('.navigation').on('click', 'li', function() {
+    var content = $(this).data('content');
+    $('#dashboard-content .active').removeClass("active");
+    $('#dashboard-content #'+ content).addClass("active");    
+
+  });
+
+  // $('.navigation .nav-item').click(function(event){
+  //   $('#dashboard-content .active').removeClass("active");
+  //   $('#dashboard-content #my-teachers').addClass("active");    
+  // });
+
 });
+

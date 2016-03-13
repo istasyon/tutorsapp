@@ -1,13 +1,13 @@
 <%= render 'shared/navbar' %>
 <div id="dashboard">
-	<% if current_user.type == "Teacher" %>
+	
 
 
-	<% else %>
+	
 	<div class="container">
 		<div class="row">
-			<div class="leftbar col-md-4">
-				<div class="clearfix">
+			<div id="leftbar" class="col-md-4">
+				<div class="leftbar-header clearfix">
 				 	<div class="userimage">
 				 		<%= image_tag current_user.image, size: "120x120" %>
 				 	</div>
@@ -15,11 +15,18 @@
 				 	<h5> <%= current_user.location %></h5>
 				</div>
 				<div class="navigation">
-					<ul>
-						<li></li>
-						<li></li>
-						<li></li>
-						<li></li>
+					<ul>	
+						<% if current_user.type == "Teacher" %>
+						<strong>Teaching Info</strong>
+						<li data-content='my-listings'><div class="nav-item">My Listings</div></li>
+						<li data-content='my-students'><div class="nav-item">My Students</div></li>
+						<li data-content='payout'><div class="nav-item">Payout</div></li>
+						<% end %>
+						<strong>Student Info</strong>						
+						<li data-content='my-lessons'><div class="nav-item">My Lessons</div></li>
+						<li data-content='my-teachers'><div class="nav-item">My Teachers</div></li>
+						<li data-content='payment'><div class="nav-item">Payment</div></li>
+						<li data-content='profile-settings'><div class="nav-item">Profile Settings</div></li>
 					</ul>	
 				</div>
 			 	
@@ -29,8 +36,43 @@
 
 
 			</div>
-			<div class="content col-md-8">
-			TEST CONTENT
+			<div id="dashboard-content" class="col-md-8">
+
+				<div id="my-lessons" class="nav-item-content active">
+					My Lessons
+					<%= puts @student_appointments %>
+					<%= puts @teacher_appointments %>
+				</div>
+
+				<div id="my-teachers" class="nav-item-content">
+					My Teacher
+					<%= puts @my_teachers %>
+				</div>
+
+				<div id="my-students" class="nav-item-content">
+					My Students
+					<%= puts @my_students %>
+				</div>
+
+				<div id="my-listings" class="nav-item-content">
+					My Listings
+					<%= puts @my_listings %>
+				</div>
+
+				<div id="payout" class="nav-item-content">
+					Payout
+				</div>
+
+				<div id="payment" class="nav-item-content">
+					Payment
+				</div>
+
+				<div id="profile-settings" class="nav-item-content">
+					<%= puts @user %>
+					Profile Settings
+				</div>
+
+
 
 
 			</div>
@@ -39,7 +81,7 @@
 
 	</div>
 
-	<% end %>
+	
 
 
 </div>

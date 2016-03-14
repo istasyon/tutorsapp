@@ -57,3 +57,15 @@ end
                     platform: platform[rand(3)])
 
 end
+u = User.find(21)
+Listing.first.appointments.create(user_id: u.id, 
+  starts_at: Time.zone.now, ends_at: Time.zone.tomorrow)
+Listing.second.appointments.create(user_id: u.id, 
+  starts_at: Time.zone.now, ends_at: Time.zone.tomorrow)  
+Listing.third.appointments.create(user_id: u.id, 
+  starts_at: Time.zone.now, ends_at: Time.zone.tomorrow)
+l = u.listings.first
+l.appointments.create(user_id: User.last.id, 
+  starts_at: Time.zone.now, ends_at: Time.zone.tomorrow)
+l.appointments.create(user_id: User.fifth.id, 
+  starts_at: Time.zone.now, ends_at: Time.zone.tomorrow)

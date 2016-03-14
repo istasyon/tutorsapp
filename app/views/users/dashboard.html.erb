@@ -40,23 +40,41 @@
 
 				<div id="my-lessons" class="nav-item-content active">
 					My Lessons
-					<%= puts @student_appointments %>
-					<%= puts @teacher_appointments %>
+					<h4> Student Appointments </h4>
+					<% @student_appointments.each do |s| %>
+					<p>Student: <%= s.user.email %></p>
+					<p>Teacher: <%= s.listing.user.email %></p>
+					<% end %>
+					<h4> Teacher Appointments </h4>
+					<% @teacher_appointments.each do |t| %>
+					<p>Student: <%= t.user.email %></p>
+					<p>Teacher: <%= t.listing.user.email %></p>
+					<% end %>
 				</div>
 
 				<div id="my-teachers" class="nav-item-content">
 					My Teacher
-					<%= puts @my_teachers %>
+					<% @my_teachers.each do |teacher| %>
+					<p>First Name: <%= teacher.first_name %></p>
+					<p>Email: <%= teacher.email %></p>
+					<% end %>
 				</div>
 
 				<div id="my-students" class="nav-item-content">
 					My Students
-					<%= puts @my_students %>
+					<% @my_students.each do |student| %>
+					<p>First Name: <%= student.first_name %></p>
+					<p>Email: <%= student.email %></p>
+					<% end %>
 				</div>
 
 				<div id="my-listings" class="nav-item-content">
 					My Listings
-					<%= puts @my_listings %>
+					<% @listings.each do |listing| %>
+					<p>Language: <%= listing.language.name %></p>
+					<p>Description: <%= listing.description %></p>
+					<p>Price: <%= listing.price %></p>
+					<% end %>
 				</div>
 
 				<div id="payout" class="nav-item-content">
@@ -68,8 +86,13 @@
 				</div>
 
 				<div id="profile-settings" class="nav-item-content">
-					<%= puts @user %>
 					Profile Settings
+					<%= image_tag @user.image %>
+					<p>First Name: <%= @user.first_name %></p>
+					<p>Last Name: <%= @user.last_name %></p>
+					<p>Skype: <%= @user.skype %></p>
+					<p>Location: <%= @user.location %></p>
+					
 				</div>
 
 

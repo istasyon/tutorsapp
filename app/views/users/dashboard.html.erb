@@ -42,13 +42,13 @@
 					My Lessons
 					<h4> Student Appointments </h4>
 					<% @student_appointments.each do |s| %>
-					<p>Student: <%= s.user.email %></p>
-					<p>Teacher: <%= s.listing.user.email %></p>
+					<p>Student: <%= current_user.email %></p>
+					<p>Listind ID: <%= s.listing.id %></p>
 					<% end %>
 					<h4> Teacher Appointments </h4>
 					<% @teacher_appointments.each do |t| %>
 					<p>Student: <%= t.user.email %></p>
-					<p>Teacher: <%= t.listing.user.email %></p>
+					<p>Teacher: <%= current_user.email %></p>
 					<% end %>
 				</div>
 

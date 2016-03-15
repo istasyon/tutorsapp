@@ -58,14 +58,19 @@ end
 
 end
 u = User.find(21)
-Listing.first.appointments.create(user_id: u.id, 
-  starts_at: Time.zone.now, ends_at: Time.zone.tomorrow)
-Listing.second.appointments.create(user_id: u.id, 
-  starts_at: Time.zone.now, ends_at: Time.zone.tomorrow)  
-Listing.third.appointments.create(user_id: u.id, 
-  starts_at: Time.zone.now, ends_at: Time.zone.tomorrow)
 l = u.listings.first
-l.appointments.create(user_id: User.last.id, 
-  starts_at: Time.zone.now, ends_at: Time.zone.tomorrow)
-l.appointments.create(user_id: User.fifth.id, 
-  starts_at: Time.zone.now, ends_at: Time.zone.tomorrow)
+
+
+20.times do |n|
+  u.listings.create!(language_id: 1, 
+                    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                    Amet aspernatur illum debitis eaque harum maxime minus incidunt commodi 
+                    ab consectetur enim veniam officiis nulla pariatur, quas itaque et quo cupiditate!",
+                    price: 1+n,
+                    is_trial: rand(2),
+                    platform: "both")
+  Listing.find(1+n).appointments.create(user_id: u.id, 
+    starts_at: Time.zone.now, ends_at: Time.zone.tomorrow)
+  l.appointments.create(user_id: User.find(1+n).id, 
+    starts_at: Time.zone.now, ends_at: Time.zone.tomorrow)
+end

@@ -6,9 +6,7 @@ class RegistrationsController < Devise::RegistrationsController
     resource.update_without_password(params)
   end
   def account_update_params
-    params.require(:user).permit(:first_name, :last_name, :email,
-    							 :password, :password_confirmation, 
-    							 :current_password, :location, :phone, :from,
+    params.require(:user).permit(:location, :phone, :from,
     							 :skype, :time_zone, :type)
   end
 end

@@ -71,9 +71,11 @@
 				<div id="my-listings" class="nav-item-content">
 					My Listings
 					<% @listings.each do |listing| %>
-					<p>Language: <%= listing.language.name %></p>
-					<p>Description: <%= listing.description %></p>
-					<p>Price: <%= listing.price %></p>
+						<div class="listing-item">
+							<p>Language: <%= listing.language.name %></p>
+							<p>Description: <%= listing.description %></p>
+							<p>Price: <%= listing.price %></p>	
+						</div>
 					<% end %>
 				</div>
 
@@ -87,12 +89,32 @@
 
 				<div id="profile-settings" class="nav-item-content">
 					Profile Settings
-					<%= image_tag @user.image %>
-					<p>First Name: <%= @user.first_name %></p>
-					<p>Last Name: <%= @user.last_name %></p>
-					<p>Skype: <%= @user.skype %></p>
-					<p>Location: <%= @user.location %></p>
-					
+					<%= image_tag @user.image, size: '120x120' %>
+		  			<%= form_for(:user, url: registration_path(:user), html: { method: :put }, id: "application") do |f| %>
+					  <div class="form-group">
+					  	<%= f.label :location %>
+					    <%= f.text_field :location, class: "form-control", id: "location" %>
+					  </div>				  
+					  <div class="form-group">
+					  	<%= f.label :phone %>
+					    <%= f.text_field :phone, class: "form-control", id: "phone" %>
+					  </div>
+					  <div class="form-group">
+					  	<%= f.label :from %>
+					    <%= f.text_field :from, class: "form-control", id: "from" %>
+					  </div>
+					  <div class="form-group">
+					  	<%= f.label :skype %>
+					    <%= f.text_field :skype, class: "form-control", id: "skype" %>
+					  </div>
+					  <div class="form-group">
+					  	<%= f.label :time_zone %>
+					    <%= f.time_zone_select :time_zone, nil, {}, {class: "form-control", id: "time_zone"}  %>
+					  </div>
+					  <div class="submit-application">
+					  	  <%= f.submit "Submit", class: "btn btn-success" %>  	
+					  </div>	  
+		  			<% end %>
 				</div>
 
 

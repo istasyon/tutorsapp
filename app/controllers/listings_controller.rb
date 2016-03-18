@@ -31,11 +31,22 @@ class ListingsController < ApplicationController
     if @listing.save
       redirect_to users_dashboard_path
     else
-      render :new
+      render 'new'
     end
   end
 
   def edit
+    @listing = Listing.find(params[:id])
+    @languages = Language.all.collect { |l| [l.name, l.id] }
+  end
+
+  def update
+    @listing = Listing.find(params[:id])
+    if @listing.update(listing_params)
+      redirect_to users_dashboard_path
+    else
+      render 'edit'
+    end
   end
 
   def show

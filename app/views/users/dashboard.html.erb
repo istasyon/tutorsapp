@@ -69,7 +69,8 @@
 				</div>
 
 				<div id="my-listings" class="nav-item-content">
-					My Listings
+					My Listings<br>
+					<%= link_to "Create a New Listing", new_user_listing_path(@user), class: "btn btn-success" %>
 					<% @listings.each do |listing| %>
 						<div class="listing-item">
 							<p>Language: <%= listing.language.name %></p>

@@ -1,15 +1,18 @@
 Rails.application.routes.draw do
   
   devise_for :users,
-             path: '',
+             path: 'accounts',
              path_names: { sign_in: 'login', sign_out: 'logout', edit: 'profile' },
              controllers: { omniauth_callbacks: 'omniauth_callbacks',
                             registrations: 'registrations' }
 
   get 'users/dashboard'
   
+  resources :users, only: [:index] do
+    resources :listings, only: [:index, :new, :create]
+  end
 
-  resources :listings do 
+  resources :listings, only: [:show, :edit, :update, :destroy] do 
     resources :appointments
   end
 

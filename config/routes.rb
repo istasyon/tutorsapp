@@ -13,7 +13,11 @@ Rails.application.routes.draw do
   end
 
   resources :listings, only: [:show, :edit, :update, :destroy] do 
-    resources :appointments
+    resources :appointments, except: [:show]
+  end
+
+  resources :appointments, only: [:show] do
+    resource :review
   end
 
   root 'welcome#home' 

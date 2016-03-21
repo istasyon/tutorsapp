@@ -27,8 +27,8 @@
   background-color: #4D90FE;
   margin-bottom: 0;
 
-  ul.nav.navbar-nav li a {
-    color: #FFFFFF;
+  li a {
+    color: #fff;
     font-size:  1.14286rem;
   }
 
@@ -41,6 +41,9 @@
     font-size: 25px;
     font-weight: bold;
   }
+  .dropdown-menu li a {
+    color: #000;
+  }
 }
 
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
@@ -48,12 +51,14 @@
 } /*prevent background color on focus*/
 
 .navbar-collapse .navbar-right li a:focus, nav li a:hover {
-  border-color:  none;
+  border:  none;
   box-shadow: none;
   outline: none;
   color: #fff;
 } /*prevent outline on focus*/
-
+.navbar-default .navbar-nav > .open > a:focus {
+  background-color: transparent;
+}
 
 /* Auth Modal */
 

@@ -16,7 +16,7 @@ gem 'omniauth-oauth2', '~> 1.3.1'
 gem 'omniauth-google-oauth2'
 gem "font-awesome-rails"
 gem 'faker'
-gem 'will_paginate', '~> 3.0.6'
+gem 'will_paginate-bootstrap'
 gem 'geocoder'
 gem 'jquery-turbolinks'
 

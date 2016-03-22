@@ -17,7 +17,30 @@
 				
 				<% if current_user %>
 				<%= link_to "Book Now", new_listing_appointment_path(@listing) ,class: "btn btn-success"  %>
-				<%= link_to "Send Message", conversations_path(sender_id: current_user.id, recipient_id: @listing.user.id), method: 'post', class: "btn btn-success" %>
+				<%= link_to "Send Message", '#', "data-toggle" => "modal", "data-target" => "#MessageModal",class: "btn btn-danger" %>
+				  <div id="MessageModal" class="auth-modal modal" role="dialog">
+				    <div class="modal-dialog">
+
+				      <!-- Modal content-->
+				      <div class="modal-content"> 
+				        <div class="modal-body">
+				          <%= form_tag messages_path(to: @user.id), method: :post do %>
+				            <div class="form-group">
+				              <%= label_tag 'message[subject]', 'Subject' %>
+				              <%= text_field_tag 'message[subject]', nil, class: 'form-control', required: true %>
+				            </div>
+
+				            <div class="form-group">
+				              <%= label_tag 'message[body]', 'Message' %>
+				              <%= text_area_tag 'message[body]', nil, cols: 3, class: 'form-control', required: true %>
+				            </div>
+				            <%= submit_tag 'Send', class: 'btn btn-primary' %>
+				          <% end %>      
+				        </div>
+				        <a href="#" class="modal-close" data-dismiss="modal">X</a>
+				      </div>
+				    </div>
+				  </div> <!-- MessageModal -->
 				<% else %>
 				<%=  link_to "Book Now", '#', "data-toggle" => "modal", "data-target" => "#ModalSignUp",class: "btn btn-success" %>
 				<%= link_to "Send Message", '#', "data-toggle" => "modal", "data-target" => "#ModalSignUp",class: "btn btn-success" %>

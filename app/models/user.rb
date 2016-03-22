@@ -4,11 +4,16 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, 
          :omniauthable
-
+         
+  acts_as_messageable
   has_many :listings
   has_many :appointments
   has_many :reviews
   has_and_belongs_to_many :languages
+
+  def mailboxer_email(object)
+    email
+  end
 
   def self.from_omniauth(auth)
     user = User.where(email: auth.info.email).first

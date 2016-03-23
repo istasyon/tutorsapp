@@ -3,6 +3,7 @@ class ReviewsController < ApplicationController
 		# Refactor if better possible
 		# @review = Appointment.find(params[:appointment_id]).review.create(review_params)
 		@review = Appointment.find(params[:appointment_id]).create_review(review_params)
+		Appointment.find(params[:appointment_id]).listing.user.reviews << @review
 		redirect_to users_dashboard_path
 		#add redirect_to OR is it ajax?
 	end
@@ -15,6 +16,6 @@ class ReviewsController < ApplicationController
 
 	private
 	def review_params
-		params.require(:review).permit(:comment, :star, :user_id)
+		params.require(:review).permit(:comment, :star)
 	end
 end

@@ -3,7 +3,7 @@ class ListingsController < ApplicationController
 
 	def welcome_search
     @results = Listing.where(language_id: params[:language_id], 
-      user_id: User.where(location: params[:location])).includes(:user).paginate(:page => params[:page], :per_page => 10)
+      user_id: User.where(location: params[:location])).includes(user: [:reviews]).paginate(:page => params[:page], :per_page => 10)
 	end
 
   def index

@@ -16,7 +16,7 @@
 			<% @results.each do |a| %>
 				<div class="well well-lg">
 					<%= image_tag "#{a.user.image}?type=large", class: "listing-avatar" %>
-					<span class="name"><%= "#{a.user.first_name} #{a.user.last_name}" %></span><br>
+					<span class="name"><%= "#{a.user.first_name} #{a.user.last_name}" %></span><span id="average_rating_<%=a.user.id%>"></span> (<%= a.user.reviews.count %>)<br>
 					<%= truncate(a.description, length: 250) %><br>
 					<span class="price-label">Price:</span><span class="price"><%= " #{a.price} $" %></span><br>
 					<%= link_to "View Schedule", listing_path(a), class: "btn btn-schedule" %>
@@ -49,6 +49,13 @@
 						<%= link_to "Send Message", '#', "data-toggle" => "modal", "data-target" => "#ModalSignUp",class: "btn btn-message" %>
 					<% end %>			
 				</div>
+				<script>
+					$('#average_rating_<%=a.user.id%>').raty({
+						path: '/assets',
+						readOnly: true,
+						score: <%= a.user.average_rating %>
+					});
+				</script>
 			<% end %>
 		</div>
 	</div>

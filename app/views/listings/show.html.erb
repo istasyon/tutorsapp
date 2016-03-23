@@ -6,7 +6,7 @@
 				<%= image_tag @user.image, id: "user_image" %>
 			</div>
 			<div class="col-md-4">
-				<span class="fullname"><%= "#{@user.first_name} #{@user.last_name}" %><br></span>
+				<span class="fullname"><%= "#{@user.first_name} #{@user.last_name} " %></span><span id="average_rating"></span> (<%= @user.reviews.count %>)<br>
 				<%= "Description: #{@listing.description}" %><br>
 				<%= "Lives in: #{@user.location}" %><br>
 			</div>
@@ -61,3 +61,10 @@
 
 
   <%= render "shared/registration_modals" %>
+<script>
+	$('#average_rating').raty({
+		path: '/assets',
+		readOnly: true,
+		score: <%= @user.average_rating %>
+	});
+</script>

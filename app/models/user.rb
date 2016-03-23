@@ -31,5 +31,9 @@ class User < ActiveRecord::Base
         user.password = Devise.friendly_token[0,20]
       end
     end
-  end  
+  end 
+
+    def average_rating
+      reviews.count == 0 ? 0 : reviews.average(:star).round(2)
+    end 
 end

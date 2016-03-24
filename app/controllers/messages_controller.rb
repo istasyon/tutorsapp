@@ -1,9 +1,6 @@
 class MessagesController < ApplicationController
   before_action :authenticate_user!
 
-  def new
-  end
-
   def create
     chosen_recipient = User.find_by(id: params[:to].to_i) if params[:to]
     conversation = current_user.send_message(chosen_recipient, params[:message][:body], params[:message][:subject]).conversation

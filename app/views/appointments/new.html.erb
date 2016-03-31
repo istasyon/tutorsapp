@@ -15,7 +15,37 @@
   <% end %>
 
 
-
+  <div id='calendar'></div>
 </div>
+<script>
+  $(document).ready(function() {
 
+    // page is now ready, initialize the calendar...
+    function renderCalendar() {
+      $('#calendar').fullCalendar({
+        defaultView: 'agendaWeek',
+        contentHeight: 630,
+        allDaySlot: false,
+        slotDuration: '01:00:00',
+        scrollTime: '00:00:00',
+        events: {
+          url: '/users/<%=@listing.user.id%>/timeslots'
+        },
+        dayClick: function(date) {
+          console.log('dayClick', date.format());
+        }
+
+      });
+    }
+
+    renderCalendar();
+    //   var newEvent = new Object();
+
+    // newEvent.title = "test";
+    // newEvent.start = 'Mon Mar 28 2016 09:30:00 GMT+0300';
+    // newEvent.end = 'Mon Mar 28 2016 10:30:00 GMT+0300';
+    // $('#calendar').fullCalendar( 'renderEvent', newEvent );
+
+  });
+</script>
 

@@ -20,6 +20,8 @@ gem 'will_paginate-bootstrap'
 gem 'geocoder'
 gem 'jquery-turbolinks'
 gem "mailboxer"
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
 
 group :development, :test do
   gem 'dotenv-rails'

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  
-  devise_for :users,
+
+devise_for :users,
              path: 'accounts',
              path_names: { sign_in: 'login', sign_out: 'logout', edit: 'profile' },
              controllers: { omniauth_callbacks: 'omniauth_callbacks',
@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'users/dashboard'
   
   resources :users, only: [:index] do
+    resources :timeslots
     resources :listings, only: [:index, :new, :create]
   end
 

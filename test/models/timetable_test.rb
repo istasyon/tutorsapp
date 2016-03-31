@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class TimeslotTest < ActiveSupport::TestCase
+class TimetableTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

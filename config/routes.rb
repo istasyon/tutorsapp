@@ -9,7 +9,7 @@ devise_for :users,
   get 'users/dashboard'
   
   resources :users, only: [:index] do
-    resources :timeslots
+    resource :timetable
     resources :listings, only: [:index, :new, :create]
   end
 

@@ -1,5 +1,5 @@
-class TimeslotsController < ApplicationController
-  def index
+class TimetablesController < ApplicationController
+  def show
   	@timeslots = [{ start: "20:00",
     end: "24:00" , dow: [0], rendering: 'background'},{ start: "03:00",
   	end: "08:00" , dow: [1], rendering: 'background'}, { start: "06:00",
@@ -22,6 +22,7 @@ class TimeslotsController < ApplicationController
       format.json { render json: @timeslots }
     end
   end
+
 
   def new
   end

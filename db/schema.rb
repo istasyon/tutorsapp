@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160329173629) do
+ActiveRecord::Schema.define(version: 20160331093814) do
 
   create_table "appointments", force: :cascade do |t|
     t.datetime "created_at",           null: false
@@ -119,17 +119,21 @@ ActiveRecord::Schema.define(version: 20160329173629) do
   add_index "reviews", ["appointment_id"], name: "index_reviews_on_appointment_id", using: :btree
   add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
 
-  create_table "timeslots", force: :cascade do |t|
-    t.integer  "day_of_week", limit: 4
-    t.string   "start_time",  limit: 255
-    t.string   "end_time",    limit: 255
-    t.string   "timezone",    limit: 255
-    t.integer  "user_id",     limit: 4
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+  create_table "timetables", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.string   "monday",     limit: 255
+    t.string   "tuesday",    limit: 255
+    t.string   "wednesday",  limit: 255
+    t.string   "thursday",   limit: 255
+    t.string   "friday",     limit: 255
+    t.string   "saturday",   limit: 255
+    t.string   "sunday",     limit: 255
+    t.string   "timezone",   limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
-  add_index "timeslots", ["user_id"], name: "index_timeslots_on_user_id", using: :btree
+  add_index "timetables", ["user_id"], name: "index_timetables_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -169,5 +173,5 @@ ActiveRecord::Schema.define(version: 20160329173629) do
   add_foreign_key "mailboxer_receipts", "mailboxer_notifications", column: "notification_id", name: "receipts_on_notification_id"
   add_foreign_key "reviews", "appointments"
   add_foreign_key "reviews", "users"
-  add_foreign_key "timeslots", "users"
+  add_foreign_key "timetables", "users"
 end

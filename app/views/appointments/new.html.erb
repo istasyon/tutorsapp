@@ -1,25 +1,17 @@
 <div class="container">
-  <h1>Book Now</h1>
-  <%= form_for [@listing, @appointment] do |f| %>
-  <%= f.label :starts_at, "Select Start Time "%>
-  <%= f.date_select :starts_at %>
-  <%= f.time_select :starts_at, :ignore_date => true %>
-  <br>
-
-  <%= f.label :ends_at, "Select End Time "%>
-  <%= f.date_select :ends_at %>
-  <%= f.time_select :ends_at, :ignore_date => true %>
-  <br>
-  <%= f.hidden_field :user_id, value: current_user.id %>
-  <%= f.submit %>
-  <% end %>
-
-
   <div id='calendar'></div>
 </div>
-<script>
-  $(document).ready(function() {
 
+<%= render "shared/createEventModal" %>
+<script>
+$(document).ready(function() {
+var isValidEvent = function(start,end){
+    return $("#calendar").fullCalendar('clientEvents', function (event) {
+        return (event.rendering === "background" && //Add more conditions here if you only want to check against certain events
+                (start.isAfter(event.start) || start.isSame(event.start,'minute')) &&
+                (end.isBefore(event.end) || end.isSame(event.end,'minute')));
+    }).length > 0;
+};
     // page is now ready, initialize the calendar...
     function renderCalendar() {
       $('#calendar').fullCalendar({
@@ -27,6 +19,7 @@
         timezone: 'local',
         contentHeight: 630,
         allDaySlot: false,
+        selectable: true,
         slotDuration: '01:00:00',
         scrollTime: '00:00:00',
         events: {
@@ -42,19 +35,26 @@
               $('<div class="tzo"/>').text(event.start.format('Z'))
             );
           }
+        },
+      select: function(start, end) {
+         if(isValidEvent(start,end)) {
+          start=moment(start).format('YYYY-MM-DDTHH:mm:ssZ');
+      end=moment(end).format('YYYY-MM-DDTHH:mm:ssZ');
+      var mywhen = start + ' - ' + end;
+          $('#createEventModal #apptStartTime').val(start);
+          $('#createEventModal #apptEndTime').val(end);
+          $('#createEventModal #when').text(mywhen);
+          $('#createEventModal').modal('show');
         }
+        $("#calendar").fullCalendar("unselect");
+       },
+      selectOverlap: function(event) {
+        return ! event.booked;
+      }
 
       });
     }
 
     renderCalendar();
-    //   var newEvent = new Object();
-
-    // newEvent.title = "test";
-    // newEvent.start = 'Mon Mar 28 2016 09:30:00 GMT+0300';
-    // newEvent.end = 'Mon Mar 28 2016 10:30:00 GMT+0300';
-    // $('#calendar').fullCalendar( 'renderEvent', newEvent );
-
   });
 </script>
-

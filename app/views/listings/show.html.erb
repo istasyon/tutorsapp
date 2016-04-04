@@ -64,25 +64,64 @@
 
 
   <%= render "shared/registration_modals" %>
+  <%= render "shared/createEventModal" %>
 <script>
 	$('#average_rating').raty({
 		path: '',
 		readOnly: true,
 		score: <%= @user.average_rating %>
 	});
-	$(document).ready(function() {
-
+  $(document).ready(function() {
+var isValidEvent = function(start,end){
+    return $("#calendar").fullCalendar('clientEvents', function (event) {
+        return (event.rendering === "background" && //Add more conditions here if you only want to check against certain events
+                (start.isAfter(event.start) || start.isSame(event.start,'minute')) &&
+                (end.isBefore(event.end) || end.isSame(event.end,'minute')));
+    }).length > 0;
+};
     // page is now ready, initialize the calendar...
+    function renderCalendar() {
+      $('#calendar').fullCalendar({
+        defaultView: 'agendaWeek',
+        timezone: 'local',
+        contentHeight: 630,
+        allDaySlot: false,
+        selectable: true,
+        slotDuration: '01:00:00',
+        scrollTime: '00:00:00',
+        events: {
+          url: '/users/<%= @listing.user.id %>/timetable'
+        },
+        dayClick: function(date) {
+          console.log('dayClick', date.format());
+        },
+        eventRender: function(event, el) {
+          // render the timezone offset below the event title
+          if (event.start.hasZone()) {
+            el.find('.fc-title').after(
+              $('<div class="tzo"/>').text(event.start.format('Z'))
+            );
+          }
+        },
+      select: function(start, end) {
+      	 if(isValidEvent(start,end)) {
+      	 	start=moment(start).format('YYYY-MM-DDTHH:mm:ssZ');
+			end=moment(end).format('YYYY-MM-DDTHH:mm:ssZ');
+			var mywhen = start + ' - ' + end;
+          $('#createEventModal #apptStartTime').val(start);
+          $('#createEventModal #apptEndTime').val(end);
+          $('#createEventModal #when').text(mywhen);
+          $('#createEventModal').modal('show');
+      	}
+      	$("#calendar").fullCalendar("unselect");
+       },
+      selectOverlap: function(event) {
+        return ! event.booked;
+      }
 
-	    $('#calendar').fullCalendar({
-	        defaultView: 'agendaWeek'
-	    });
-	    var newEvent = new Object();
+      });
+    }
 
-		newEvent.title = "test";
-		newEvent.start = '2016-03-26T06:00:00';
-		newEvent.end = '2016-03-26T07:00:00';
-		$('#calendar').fullCalendar( 'renderEvent', newEvent );
-
-	});
+    renderCalendar();
+  });
 </script>

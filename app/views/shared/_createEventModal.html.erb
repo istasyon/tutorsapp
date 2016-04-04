@@ -1,0 +1,29 @@
+<div id="createEventModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Request an Appointment</h4>
+      </div>
+      <div class="modal-body">
+          <%= form_for [@listing, @appointment] do |f| %>
+          <%= f.hidden_field :starts_at, id: "apptStartTime" %>
+          <%= f.hidden_field :ends_at, id: "apptEndTime" %>
+          <%= f.hidden_field :user_id, value: current_user.id %>
+        <div class="control-group">
+            <label class="control-label" for="when">When:</label>
+            <div class="controls controls-row" id="when">
+            </div>
+        </div>
+          <%= f.submit "Send Request", class: 'btn btn-success' %>
+          <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+
+  </div>
+</div>

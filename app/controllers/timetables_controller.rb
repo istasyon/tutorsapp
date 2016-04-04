@@ -1,18 +1,8 @@
 class TimetablesController < ApplicationController
   def show
     @availabilities = to_dow User.find(params[:user_id]).timetable
-    @appointments =  [{
-        title:"BOOKED",
-        start: "Mon, 05 Apr 2016 06:00:00 UTC +00:00",
-        end: "Mon, 05 Apr 2016 09:00:00 UTC +00:00", 
-        color: 'black'
-      }, {
-        title:"BOOKED",
-        start: 'Mon, 06 Apr 2016 06:00:00 UTC +00:00', 
-        end: 'Mon, 06 Apr 2016 09:00:00 UTC +00:00',
-        color: 'grey'
-      }]
-      @timeslots = @appointments + @availabilities
+    @appointments =  get_appointments User.find(params[:user_id])
+    @timeslots = @appointments + @availabilities
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @timeslots }
@@ -120,5 +110,18 @@ def left_circular_shift(bit_string, n)
     end
     all_hash
   end   
+
+  def get_appointments(user)
+    booked = []
+
+    user.appointments.each do |a|
+      booked << {        title:"BOOKED",
+          start: a.starts_at ,
+          'end' => a.ends_at , 
+          color: 'black',
+          booked: true}
+    end
+    booked
+  end
 
 end

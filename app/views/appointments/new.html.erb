@@ -24,6 +24,7 @@
     function renderCalendar() {
       $('#calendar').fullCalendar({
         defaultView: 'agendaWeek',
+        timezone: 'local',
         contentHeight: 630,
         allDaySlot: false,
         slotDuration: '01:00:00',
@@ -33,6 +34,14 @@
         },
         dayClick: function(date) {
           console.log('dayClick', date.format());
+        },
+        eventRender: function(event, el) {
+          // render the timezone offset below the event title
+          if (event.start.hasZone()) {
+            el.find('.fc-title').after(
+              $('<div class="tzo"/>').text(event.start.format('Z'))
+            );
+          }
         }
 
       });

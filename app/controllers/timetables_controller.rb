@@ -1,6 +1,18 @@
 class TimetablesController < ApplicationController
   def show
-    @timeslots = to_dow User.find(params[:user_id]).timetable
+    @availabilities = to_dow User.find(params[:user_id]).timetable
+    @appointments =  [{
+        title:"BOOKED",
+        start: "Mon, 05 Apr 2016 06:00:00 UTC +00:00",
+        end: "Mon, 05 Apr 2016 09:00:00 UTC +00:00", 
+        color: 'black'
+      }, {
+        title:"BOOKED",
+        start: 'Mon, 06 Apr 2016 06:00:00 UTC +00:00', 
+        end: 'Mon, 06 Apr 2016 09:00:00 UTC +00:00',
+        color: 'grey'
+      }]
+      @timeslots = @appointments + @availabilities
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @timeslots }

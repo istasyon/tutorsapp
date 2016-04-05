@@ -113,8 +113,8 @@ def left_circular_shift(bit_string, n)
 
   def get_appointments(user)
     booked = []
-
-    user.appointments.each do |a|
+    appointments = Appointment.where(listing_id: Listing.where(user_id: user.id))
+    appointments.each do |a|
       booked << {        title:"BOOKED",
           start: a.starts_at ,
           'end' => a.ends_at , 

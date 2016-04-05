@@ -14,6 +14,7 @@
 //= require bootstrap-sprockets
 //= require moment
 //= require fullcalendar
+//= require day-schedule-selector.js
 //= require jquery_ujs
 //= require jquery.turbolinks
 //= require turbolinks

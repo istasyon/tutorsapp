@@ -23,6 +23,7 @@ gem "mailboxer"
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 
+
 group :development, :test do
   gem 'dotenv-rails'
   gem 'byebug'

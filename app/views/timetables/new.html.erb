@@ -1,2 +1,23 @@
-<h1>Timetables#new</h1>
-<p>Find me in app/views/timetables/new.html.erb</p>
+<h1>Select Your Availability</h1>
+<%= link_to "Console Selected Slots", '#', id: "select", class: "btn btn-danger" %>
+
+<div id="weekly-schedule"></div>
+
+<script>
+	$(document).ready(function() {
+		$("#weekly-schedule").dayScheduleSelector({
+        days: [0, 1, 2, 3, 4, 5, 6],
+        interval: 30,
+        startTime: '00:00',
+        endTime: '24:00'
+
+		});
+		$('#select').click(function() {
+			$("td[data-selected='selected']").each(function (index, value){
+			  console.log('Day:' + $(this).attr('data-day') +' Time:' + $(this).attr('data-time'));
+			});	
+		});
+
+
+	});
+</script>

@@ -1,0 +1,31 @@
+<table class="table table-bordered" id='timetable'>
+    <thead>
+      <tr>
+         <th></th>
+         <th>Sun</th>
+         <th>Mon</th>
+         <th>Tue</th>
+         <th>Wed</th>
+         <th>Thu</th>
+         <th>Fri</th>
+         <th>Sat</th>
+      </tr>
+    </thead>
+    <tbody class="timetable-rows">
+  	  <% (0..47).each do |i| %>
+	      <tr>
+	        <td><%= @hours[i] %></td>
+	        <td data-slot='<%=i%>' class='timeslot'></td>	        
+	        <td data-slot='<%=i+48%>' class='timeslot'></td>
+	        <td data-slot='<%=i+48*2%>' class='timeslot'></td>
+	        <td data-slot='<%=i+48*3%>' class='timeslot'></td>
+	        <td data-slot='<%=i+48*4%>' class='timeslot'></td>
+	        <td data-slot='<%=i+48*5%>' class='timeslot'></td>
+	        <td data-slot='<%=i+48*6%>' class='timeslot'></td>
+	      </tr>
+      <% end %>
+      	<tr>
+      		<td>24:00</td>
+      	</tr>
+    </tbody>
+  </table>

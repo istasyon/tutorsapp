@@ -1,21 +1,26 @@
-.schedule-rows td {
-  width: 80px;
-  height: 30px;
-  margin: 3px;
-  padding: 5px;
-  background-color: #eee;
-  cursor: pointer;
-}
-.schedule-rows td:first-child {
-  background-color: transparent;
+  #timetable {
+    border: none;
+
+    th {
+      border: none;
+    }
+  }
+
+
+
+  table td {
+    background-color:#fff;
+    border:1px solid #000;
+  }
+
+  table td.selected {
+    background-color:green;
+  }
+
+.timetable-rows td:first-child {
+  background-color: #FAFBFC;
   text-align: right;
   position: relative;
-  top: -12px;
-}
-.schedule-rows td[data-selected],
-.schedule-rows td[data-selecting] {
-  background-color: #6a0bc1;
-}
-.schedule-rows td[data-disabled] {
-  opacity: 0.55;
+  top: -18px;
+  border: none;
 }

@@ -7,6 +7,6 @@ class RegistrationsController < Devise::RegistrationsController
   end
   def account_update_params
     params.require(:user).permit(:location, :phone, :from,
-    							 :skype, :time_zone, :type)
+    							 :skype, :time_zone, :type, :timetable)
   end
 end

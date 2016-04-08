@@ -143,7 +143,12 @@
 
                 <div id="my-timetable" class="nav-item-content">
                     <h1>Edit Your Timetable</h1>
+                   <%= form_for(:user, url: registration_path(:user), html: { method: :put }, id: "application") do |f| %>
+                        <%= f.hidden_field :timetable, id: 'timetableInput' %>
+                        <%= f.submit "Save Timetable", class: "btn btn-success" %>
+                    <% end %>
                     <%= render 'timetable' %>
+ 
                 </div>
 
                 <div id="payment" class="nav-item-content">
@@ -219,11 +224,24 @@
                 isMouseDown = false;
             });
 
-        $('h1').click(function() {
+        
+        $('#timetable').mouseup(function() {
+            var timetableArray = Array.apply(null, Array(672)).map(Number.prototype.valueOf,0)
+            var a = 0;
             $("td.selected").each(function() {
-                console.log($(this).attr('data-slot'));
+                a = parseInt($(this).attr('data-slot'));
+                timetableArray[a*2] = 1;
+                timetableArray[a*2+1] = 1;        
             });
+            $('#timetableInput').val(timetableArray.toString().replace(/,/g,''));
         });
 
+        <% if @timetable %>
+            <% (0..335).find_all do |i| %>
+                <% if @timetable[i*2] == '1' %>
+                    $("td[data-slot= <%= i %>]").addClass("selected");
+                <% end %>
+            <% end %>
+        <% end %>
     });
 </script>

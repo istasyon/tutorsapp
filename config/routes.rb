@@ -24,6 +24,7 @@ devise_for :users,
   root 'welcome#home' 
   get 'teacher' => 'welcome#become_a_teacher'
   get 'search' => 'listings#search' 
+  get 'nearby' => 'listings#nearby'
   
   
   resources :conversations, only: [:index, :show, :destroy] do

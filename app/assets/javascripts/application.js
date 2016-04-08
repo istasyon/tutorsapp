@@ -19,8 +19,15 @@
 //= require jquery.turbolinks
 //= require turbolinks
 //= require_tree .
+//= require jquery.geocomplete
 
 $(function() {
+$("#geo-input").geocomplete();
+});  
+
+$(function() {
+
+
 
   var wheight = $(window).height(); 
   var slideqty = $('#featured .item').length;
@@ -34,6 +41,9 @@ $(function() {
   });
 
   $('#featured .item').eq(randSlide).addClass('active');
+  
+
+
 
 
     //replace IMG inside carousels with a background image
@@ -75,6 +85,9 @@ $(function() {
     $('#dashboard-content #'+ content).addClass("active");    
 
   });
+
+  //AutoComplete Location
+  // $("#geo-input").geocomplete();
 
   // $('.navigation .nav-item').click(function(event){
   //   $('#dashboard-content .active').removeClass("active");

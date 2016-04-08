@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, 
          :omniauthable
+
+  geocoded_by :address
+  after_validation :geocode, :if => :address_changed?       
          
   acts_as_messageable
   has_many :listings

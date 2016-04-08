@@ -10,7 +10,25 @@ class ListingsController < ApplicationController
   	@listings = Listing.all
   end
 
+  def nearby
+    if params[:search].present?
+      @results = Listing.where(user_id: Teacher.near(params[:search]).map do |t| t.id end).includes(user: [:reviews]).paginate(:page => params[:page], :per_page => 10)
+      @languages = Language.all
+      @locations = Teacher.uniq.pluck(:location)
+      render 'search'
+    else
+      @results = Listing.all.includes(user: [:reviews]).paginate(:page => params[:page], :per_page => 10)
+      @languages = Language.all
+      @locations = Teacher.uniq.pluck(:location)
+      render 'search'
+    end
+  end
+
   def search
+    # Add Complex Filtering based on
+    # from, location,
+    # language_id, price, platform, is_trial
+
   	#Refactor for one query
   	@results = welcome_search
     @languages = Language.all

@@ -1,148 +1,247 @@
 <%= render 'shared/navbar' %>
+
 <div id="dashboard">
-	<div class="container">
-		<div class="row">
-			<div id="leftbar" class="col-md-4">
-				<div class="leftbar-header clearfix">
-				 	<div class="userimage">
-				 		<%= image_tag current_user.image, size: "120x120" %>
-				 	</div>
-				 	<h3> <%= current_user.first_name %></h3>
-				 	<h5> <%= current_user.location %></h5>
-				</div>
-				<div class="navigation">
-					<ul>	
-						<% if current_user.type == "Teacher" %>
-						<strong>Teaching Info</strong>
-						<li data-content='my-listings'><div class="nav-item">My Listings</div></li>
-						<li data-content='my-students'><div class="nav-item">My Students</div></li>
-						<li data-content='payout'><div class="nav-item">Payout</div></li>
-						<% end %>
-						<strong>Student Info</strong>						
-						<li data-content='my-lessons'><div class="nav-item">My Lessons</div></li>
-						<li data-content='my-teachers'><div class="nav-item">My Teachers</div></li>
-						<li data-content='payment'><div class="nav-item">Payment</div></li>
-						<li data-content='profile-settings'><div class="nav-item">Profile Settings</div></li>
-					</ul>	
-				</div>
-			 	
-			 	
+    <div class="container">
+        <div class="row">
+            <div id="leftbar" class="col-md-4">
+                <div class="leftbar-header clearfix">
+                    <div class="userimage">
+                        <%= image_tag current_user.image, size: "120x120" %>
+                    </div>
+                    <h3> <%= current_user.first_name %></h3>
+                    <h5> <%= current_user.location %></h5>
+                </div>
+                <div class="navigation">
+                    <ul>
+                        <% if current_user.type == "Teacher" %>
+                            <strong>Teaching Info</strong>
+                            <li data-content='my-listings'>
+                                <div class="nav-item">My Listings</div>
+                            </li>
+                            <li data-content='my-students'>
+                                <div class="nav-item">My Students</div>
+                            </li>
+                            <li data-content='payout'>
+                                <div class="nav-item">Payout</div>
+                            </li>
+                            <li data-content='my-timetable' id='timetable-tab'>
+                                <div class="nav-item">My Timetable</div>
+                            </li>
+                            <% end %>
+                                <strong>Student Info</strong>
+                                <li data-content='my-lessons'>
+                                    <div class="nav-item">My Lessons</div>
+                                </li>
+                                <li data-content='my-teachers'>
+                                    <div class="nav-item">My Teachers</div>
+                                </li>
+                                <li data-content='payment'>
+                                    <div class="nav-item">Payment</div>
+                                </li>
+                                <li data-content='profile-settings'>
+                                    <div class="nav-item">Profile Settings</div>
+                                </li>
+                    </ul>
+                </div>
 
 
 
 
-			</div>
-			<div id="dashboard-content" class="col-md-8">
 
-				<div id="my-lessons" class="nav-item-content active">
-					My Lessons
-					<h4> Student Appointments </h4>
-					<% @student_appointments.each do |s| %>
-						<div class="well">
-							<p>Student: <%= current_user.email %></p>
-							<p>Listind ID: <%= s.listing.id %></p>
-							<% if s.review %>
-								<p>Your comment: <%= s.review.comment %></p>	
-								<div id="stars_<%= s.id %>"></div>
-								<div><%= s.review.created_at.strftime("%v") %></div>	
-							<% else %>
-								<%= render 'review_form', s: s %>
-							<% end %>	
-						</div>
-						<script>
-							$('#stars_<%= s.id %>').raty({
-								path: '',
-								readOnly: true,
-								score: <%= s.review.star %>
-							});
-						</script>						  
-					<% end %>
-					<h4> Teacher Appointments </h4>
-					<% @teacher_appointments.each do |t| %>
-						<p>Student: <%= t.user.email %></p>
-						<p>Teacher: <%= current_user.email %></p>
-					<% end %>
-				</div>
+            </div>
+            <div id="dashboard-content" class="col-md-8">
 
-				<div id="my-teachers" class="nav-item-content">
-					My Teacher
-					<% @my_teachers.each do |teacher| %>
-						<p>First Name: <%= teacher.first_name %></p>
-						<p>Email: <%= teacher.email %></p>
-					<% end %>
-				</div>
+                <div id="my-lessons" class="nav-item-content active">
+                    My Lessons
+                    <h4> Student Appointments </h4>
+                    <% @student_appointments.each do |s| %>
+                        <div class="well">
+                            <p>Student:
+                                <%= current_user.email %>
+                            </p>
+                            <p>Listind ID:
+                                <%= s.listing.id %>
+                            </p>
+                            <% if s.review %>
+                                <p>Your comment:
+                                    <%= s.review.comment %>
+                                </p>
+                                <div id="stars_<%= s.id %>"></div>
+                                <div>
+                                    <%= s.review.created_at.strftime("%v") %>
+                                </div>
+                                <% else %>
+                                    <%= render 'review_form', s: s %>
+                                        <% end %>
+                        </div>
+                        <script>
+                            $('#stars_<%= s.id %>').raty({
+                                path: '',
+                                readOnly: true,
+                                score: <%= s.review.star %>
+                            });
+                        </script>
+                        <% end %>
+                            <h4> Teacher Appointments </h4>
+                            <% @teacher_appointments.each do |t| %>
+                                <p>Student:
+                                    <%= t.user.email %>
+                                </p>
+                                <p>Teacher:
+                                    <%= current_user.email %>
+                                </p>
+                                <% end %>
+                </div>
 
-				<div id="my-students" class="nav-item-content">
-					My Students
-					<% @my_students.each do |student| %>
-						<p>First Name: <%= student.first_name %></p>
-						<p>Email: <%= student.email %></p>
-					<% end %>
-				</div>
+                <div id="my-teachers" class="nav-item-content">
+                    My Teacher
+                    <% @my_teachers.each do |teacher| %>
+                        <p>First Name:
+                            <%= teacher.first_name %>
+                        </p>
+                        <p>Email:
+                            <%= teacher.email %>
+                        </p>
+                        <% end %>
+                </div>
 
-				<div id="my-listings" class="nav-item-content">
-					My Listings<br>
-					<%= link_to "Create a New Listing", new_user_listing_path(@user), class: "btn btn-success" %>
-					<% @listings.each do |listing| %>
-						<div class="listing-item">
-							<p>Language: <%= listing.language.name %></p>
-							<p>Description: <%= listing.description %></p>
-							<p>Price: <%= listing.price %></p>
-							<%= link_to "Edit Listing", edit_listing_path(listing) %>
+                <div id="my-students" class="nav-item-content">
+                    My Students
+                    <% @my_students.each do |student| %>
+                        <p>First Name:
+                            <%= student.first_name %>
+                        </p>
+                        <p>Email:
+                            <%= student.email %>
+                        </p>
+                        <% end %>
+                </div>
 
-						</div><br>
-					<% end %>
-				</div>
+                <div id="my-listings" class="nav-item-content">
+                    My Listings<br>
+                    <%= link_to "Create a New Listing", new_user_listing_path(@user), class: "btn btn-success" %>
+                        <% @listings.each do |listing| %>
+                            <div class="listing-item">
+                                <p>Language:
+                                    <%= listing.language.name %>
+                                </p>
+                                <p>Description:
+                                    <%= listing.description %>
+                                </p>
+                                <p>Price:
+                                    <%= listing.price %>
+                                </p>
+                                <%= link_to "Edit Listing", edit_listing_path(listing) %>
 
-				<div id="payout" class="nav-item-content">
-					Payout
-				</div>
+                            </div><br>
+                            <% end %>
+                </div>
 
-				<div id="payment" class="nav-item-content">
-					Payment
-				</div>
+                <div id="payout" class="nav-item-content">
+                    Payout
+                </div>
 
-				<div id="profile-settings" class="nav-item-content">
-					Profile Settings
-					<%= image_tag @user.image, size: '120x120' %>
-		  			<%= form_for(:user, url: registration_path(:user), html: { method: :put }, id: "application") do |f| %>
-					  <div class="form-group">
-					  	<%= f.label :location %>
-					    <%= f.text_field :location, class: "form-control", id: "location" %>
-					  </div>				  
-					  <div class="form-group">
-					  	<%= f.label :phone %>
-					    <%= f.text_field :phone, class: "form-control", id: "phone" %>
-					  </div>
-					  <div class="form-group">
-					  	<%= f.label :from %>
-					    <%= f.text_field :from, class: "form-control", id: "from" %>
-					  </div>
-					  <div class="form-group">
-					  	<%= f.label :skype %>
-					    <%= f.text_field :skype, class: "form-control", id: "skype" %>
-					  </div>
-					  <div class="form-group">
-					  	<%= f.label :time_zone %>
-					    <%= f.time_zone_select :time_zone, nil, {}, {class: "form-control", id: "time_zone"}  %>
-					  </div>
-					  <div class="submit-application">
-					  	  <%= f.submit "Submit", class: "btn btn-success" %>  	
-					  </div>	  
-		  			<% end %>
-				</div>
+                <div id="my-timetable" class="nav-item-content">
+                    <h1>Edit Your Timetable</h1>
+                   <%= form_for(:user, url: registration_path(:user), html: { method: :put }, id: "application") do |f| %>
+                        <%= f.hidden_field :timetable, id: 'timetableInput' %>
+                        <%= f.submit "Save Timetable", class: "btn btn-success" %>
+                    <% end %>
+                    <%= render 'timetable' %>
+ 
+                </div>
+
+                <div id="payment" class="nav-item-content">
+                    Payment
+                </div>
+
+                <div id="profile-settings" class="nav-item-content">
+                    Profile Settings
+                    <%= image_tag @user.image, size: '120x120' %>
+                        <%= form_for(:user, url: registration_path(:user), html: { method: :put }, id: "application") do |f| %>
+                            <div class="form-group">
+                                <%= f.label :location %>
+                                    <%= f.text_field :location, class: "form-control", id: "location" %>
+                            </div>
+                            <div class="form-group">
+                                <%= f.label :phone %>
+                                    <%= f.text_field :phone, class: "form-control", id: "phone" %>
+                            </div>
+                            <div class="form-group">
+                                <%= f.label :from %>
+                                    <%= f.text_field :from, class: "form-control", id: "from" %>
+                            </div>
+                            <div class="form-group">
+                                <%= f.label :skype %>
+                                    <%= f.text_field :skype, class: "form-control", id: "skype" %>
+                            </div>
+                            <div class="form-group">
+                                <%= f.label :time_zone %>
+                                    <%= f.time_zone_select :time_zone, nil, {}, {class: "form-control", id: "time_zone"}  %>
+                            </div>
+                            <div class="submit-application">
+                                <%= f.submit "Submit", class: "btn btn-success" %>
+                            </div>
+                            <% end %>
+                </div>
 
 
 
 
-			</div>
+            </div>
 
-		</div>
+        </div>
 
-	</div>
+    </div>
 
-	
+
 
 
 </div>
 
+<script>
+    $(function() {
+        var isMouseDown = false,
+            isSelected;
+        $("#timetable .timeslot")
+            .mousedown(function() {
+                isMouseDown = true;
+                $(this).toggleClass("selected");
+                isSelected = $(this).hasClass("selected");
+                return false; // prevent text selection
+            })
+            .mouseover(function() {
+                if (isMouseDown) {
+                    $(this).toggleClass("selected", isSelected);
+                }
+            })
+            .bind("selectstart", function() {
+                return false;
+            })
+
+        $(document)
+            .mouseup(function() {
+                isMouseDown = false;
+            });
+
+        
+        $('#timetable').mouseup(function() {
+            var timetableArray = Array.apply(null, Array(672)).map(Number.prototype.valueOf,0)
+            var a = 0;
+            $("td.selected").each(function() {
+                a = parseInt($(this).attr('data-slot'));
+                timetableArray[a*2] = 1;
+                timetableArray[a*2+1] = 1;        
+            });
+            $('#timetableInput').val(timetableArray.toString().replace(/,/g,''));
+        });
+
+        <% if @timetable %>
+            <% (0..335).find_all do |i| %>
+                <% if @timetable[i*2] == '1' %>
+                    $("td[data-slot= <%= i %>]").addClass("selected");
+                <% end %>
+            <% end %>
+        <% end %>
+    });
+</script>

@@ -9,6 +9,7 @@
 @import "dashboard";
 @import "timetable";
 
+
 /* Basic Page CSS */
   html,body {
     height:100%;
@@ -119,7 +120,11 @@
     text-align: center;
   }
 
+/* Poweredby google fix */
 
+.pac-container:after{
+  content:none !important;
+}
 
 
 
@@ -228,3 +233,4 @@
     box-shadow: none;
   } 
 }
+

@@ -17,8 +17,10 @@
 //= require jquery_ujs
 //= require jquery.turbolinks
 //= require turbolinks
+//= require underscore
+//= require gmaps/google
 //= require_tree .
-//= require jquery.geocomplete
+
 
 $(function() {
 $("#geo-input").geocomplete();

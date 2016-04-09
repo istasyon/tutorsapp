@@ -22,7 +22,7 @@ gem 'jquery-turbolinks'
 gem "mailboxer"
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
-
+gem 'gmaps4rails'
 
 group :development, :test do
   gem 'dotenv-rails'

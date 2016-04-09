@@ -33,6 +33,10 @@ class ListingsController < ApplicationController
   	@results = welcome_search
     @languages = Language.all
     @locations = Teacher.uniq.pluck(:location)
+    @hash = Gmaps4rails.build_markers(@results) do |listing, marker|
+      marker.lat listing.user.latitude
+      marker.lng listing.user.longitude
+    end
   	# Add Filtering based on
   	# from, location,
   	# language_id, price, platform, is_trial

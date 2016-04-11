@@ -15,9 +15,17 @@ class ListingsController < ApplicationController
       @results = Listing.where(user_id: Teacher.near(params[:search]).map do |t| t.id end).includes(user: [:reviews]).paginate(:page => params[:page], :per_page => 10)
       @languages = Language.all
       @locations = Teacher.uniq.pluck(:location)
+      @hash = Gmaps4rails.build_markers(@results) do |listing, marker|
+        marker.lat listing.user.latitude
+        marker.lng listing.user.longitude
+      end
       render 'search'
     else
       @results = Listing.all.includes(user: [:reviews]).paginate(:page => params[:page], :per_page => 10)
+      @hash = Gmaps4rails.build_markers(@results) do |listing, marker|
+        marker.lat listing.user.latitude
+        marker.lng listing.user.longitude
+      end     
       @languages = Language.all
       @locations = Teacher.uniq.pluck(:location)
       render 'search'

@@ -1,0 +1,65 @@
+<script src="//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js" type="text/javascript"></script>
+<%= form_for(:user, url: registration_path(:user), html: { method: :put }, id: "application") do |f| %>
+    <%= f.hidden_field :latitude, id: 'map_lat' %>
+    <%= f.hidden_field :longitude, id: 'map_lng' %>
+    <%= f.submit "Save your new location", class: "btn btn-success" %>
+<% end %>
+
+<div style='width: 800px;'>
+  <div id="map" style='width: 800px; height: 400px;'></div>
+</div>
+
+<h1><%= @user.first_name %></h1>
+<p>Latitude: <%= @user.latitude %></p>
+<p>Longitude: <%= @user.longitude %></p>
+ <p><%= @user.address %></p>
+
+
+
+<script>
+
+$( document ).ready(function() {
+
+
+function gmap_form(user) {
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+  markers = handler.addMarkers(<%=raw @hash.to_json %>);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+  });
+
+  var markerOnMap;
+
+  function placeMarker(location) {    // simply method for put new marker on map
+    if (markerOnMap) {
+      markerOnMap.setPosition(location);
+    }
+    else {
+      markerOnMap = new google.maps.Marker({
+        position: location,
+        map: handler.getMap()
+      });
+    }
+  }
+
+  google.maps.event.addListener(handler.getMap(), 'click', function(event) {    // event for click-put marker on map and pass coordinates to hidden fields in form
+    placeMarker(event.latLng);
+    document.getElementById("map_lat").value = event.latLng.lat();
+    document.getElementById("map_lng").value = event.latLng.lng();
+  });
+}
+
+
+	var user = <%=@user.to_json.html_safe%>;   // pass ruby variable to javascript
+    gmap_form(user);    // init show map for user card (only print marker)
+
+
+
+
+
+
+
+
+    });
+</script>

@@ -40,6 +40,8 @@ devise_for :users,
 
   resources :messages, only: [:new, :create]
 
+  get '/users/:user_id/location', to: 'users#location', as: :user_location
+
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

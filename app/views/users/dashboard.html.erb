@@ -1,3 +1,4 @@
+
 <%= render 'shared/navbar' %>
 
 <div id="dashboard">
@@ -157,6 +158,7 @@
 
                 <div id="profile-settings" class="nav-item-content">
                     Profile Settings
+                    <%= link_to "My Location", user_location_path(@user) %>
                     <%= image_tag @user.image, size: '120x120' %>
                         <%= form_for(:user, url: registration_path(:user), html: { method: :put }, id: "application") do |f| %>
                             <div class="form-group">
@@ -183,6 +185,7 @@
                                 <%= f.submit "Submit", class: "btn btn-success" %>
                             </div>
                             <% end %>
+
                 </div>
 
 
@@ -243,5 +246,10 @@
                 <% end %>
             <% end %>
         <% end %>
-    });
+
+
+
+
+
+        });
 </script>

@@ -52,7 +52,7 @@
 		<div class="row">
 			<div class="col-sm-6 col-sm-offset-3">
 				<div class="embed-responsive embed-responsive-16by9">
-		    		<%= @listing.video_url.html_safe %>
+		    		<%= @listing.video_url.html_safe if @listing.video_url %>
 				</div>  
 			</div>
 		</div>
@@ -64,7 +64,7 @@
 
 
   <%= render "shared/registration_modals" %>
-  <%= render "shared/createEventModal" %>
+  <%= render "shared/createEventModal" if current_user %>
 <script>
 	$('#average_rating').raty({
 		path: '',

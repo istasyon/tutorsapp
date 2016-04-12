@@ -1,5 +1,5 @@
 <h1>Listings#edit</h1>
-<%= form_for @listing do |f| %>
+<%= form_for(@listing,:html=>{:name=>"f",:onsubmit=>"return youtube_parser();"}) do |f| %>
 	  <div class="form-group">
 	  	<%= f.label :description %>
 	    <%= f.text_field :description, class: "form-control" %>
@@ -8,10 +8,8 @@
 	  	<%= f.label :is_trial %>
 	    <%= f.check_box :is_trial %>
 	  </div>
-	  <div class="form-group">
-	  	<%= f.label :video_url %>
-	    <%= f.text_field :video_url, class: "form-control"%>
-	  </div>
+		Video Url:<input type="text" id="listing_video_url">
+	  <%= f.hidden_field :video_url, id: 'video_id' %>
 	  <div class="form-group">
 	  	<%= f.label :price %>
 	    <%= f.number_field :price, class: "form-control" %>
@@ -26,3 +24,22 @@
 	  </div>	  
       <%= f.submit "Submit" %>
 <%  end %>
+
+
+<script>
+
+function youtube_parser(){
+	var url = $('#listing_video_url').val();
+    var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#\&\?]*).*/;
+    var match = url.match(regExp);
+    if(match&&match[7].length==11){
+    	$('#video_id').val('<iframe class= "embed-responsive-item" src="//www.youtube.com/embed/' + match[7] + '"></iframe>');
+    	return true;
+    } else { 
+    	return false;
+    }
+}
+
+
+
+</script>

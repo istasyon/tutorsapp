@@ -159,7 +159,7 @@
                 <div id="profile-settings" class="nav-item-content">
                     Profile Settings
                     <%= link_to "My Location", user_location_path(@user) %>
-                    <%= image_tag @user.image, size: '120x120' %>
+                    <%= image_tag @user.avatar.url(:thumb) %>
                         <%= form_for(:user, url: registration_path(:user), html: { method: :put }, id: "application") do |f| %>
                             <div class="form-group">
                                 <%= f.label :location %>
@@ -185,7 +185,10 @@
                                 <%= f.submit "Submit", class: "btn btn-success" %>
                             </div>
                             <% end %>
-
+                            <%= form_for :user, url: registration_path(:user), html: { multipart: true, method: :put } do |form| %>
+                              <%= form.file_field :avatar %>
+                              <%= form.submit "Submit Photo", class: "btn btn-danger" %>
+                            <% end %>
                 </div>
 
 

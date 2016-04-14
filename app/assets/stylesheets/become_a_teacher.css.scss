@@ -13,12 +13,13 @@
 	}
 	
 	.layout-top {
-		min-height: 650px;
 		text-align: center;
 		padding: 35px;
 		background-image: image-url("teacher-application.jpg");
 		background-size: cover;
 		background-repeat: no-repeat;
+		  width: 100%;
+		  height: 100%;
 	} 
 
 	.teacher-application-text {

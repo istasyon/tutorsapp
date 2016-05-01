@@ -96,6 +96,7 @@
 	
 	/* Navigation */
 	.navbar {
+
 	  background-color: transparent;
 	  border: none; 
 	  padding-top: 35px;
@@ -125,6 +126,17 @@
 	  	color: #ff5252;
 	  }
 
+		.navbar-toggle:hover, .navbar-toggle:focus {
+			background-color: transparent; 
+		} 
+
+		.navbar-toggle {
+			border: none;
+
+			.icon-bar {
+				background-color: #fff;
+			}
+		}
 	}
 
 	@media (max-width: 768px) { 

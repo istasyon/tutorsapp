@@ -1,77 +1,143 @@
-<div id="home_page">
-   <div id="home-header" class="home-header fullheight">
+<div id="home-page">
 
-    <%= render "navbar" %>
- 
-    <%= render "shared/registration_modals" %>
-
-    <div class="carousel fade fullheight" data-ride="carousel" id="featured">
-      <div class="carousel-inner fullheight">
-        <div class="item"><%= image_tag "bg1.jpg"  %></div>    
-        <div class="item"><%= image_tag "bg3.jpg"  %></div> 
-        <div class="item"><%= image_tag "bg4.jpg"  %></div>       
-      </div><!-- carousel-inner -->
-      <h1 class="container">WHICH LANGUAGE WOULD YOU LIKE TO LEARN?</h1>
-      <h2 class="container">Find local and online language tutors at affordable prices</h2>
-      <div class="form-container">
-        <div class="well well-lg col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 hidden-xs">
-        <%= form_tag(search_path, :method => "get", id: "search-filters", class:"form-inline") do %>
-            <%= select_tag :location, options_for_select(@locations), class: "form-control" %>
-            <%= select_tag :language_id, 
-                  options_for_select(@languages.collect{ |l| [l.name, l.id] }), 
-                  class: "form-control" %>      
-          <%= submit_tag "Search", class: "btn btn-search" %>
-        <% end %>
+  <%= render "home_navbar" %>
+  <div class="home-hero fullheight">
+    <div class="home-hero-overlay">
+      <div class="hero-content">
+        <div class="hero-content-container">
+          <h1 class="hero-title">İSTEDİĞİN KONUDA EĞİTMEN BUL</h1>     
+          <h3 class="hero-subtitle">Aradığın eğitmene, lokal veya online olarak ulaşabilirsin, üstelik bütçeni aşmayacak şekilde</h3>  
         </div>
-      </div>
-      <div class="btn-group visible-xs">
-        <div class="xs-buttons">
-          <button type="button" class="btn btn-default language-button">Select a Language</button>
-          <button class="btn btn-default search-button" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+        <div class="home-search-form hidden-xs">
+          <%= form_tag nearby_path, :method => :get, class:"form-inline" do %>
+            <p>
+              <%= text_field_tag :search, params[:search],:id => 'geo-input', class: "form-control home-location-input", placeholder: "Konum giriniz" %>
+              <%= select_tag :language_id, 
+                    options_for_select(@languages.collect{ |l| [l.name, l.id] }), 
+                    class: "form-control home-lesson-input",prompt: "Ders seçiniz" %>
+              <%= submit_tag "Öğrenmeye Başla!", :name => nil, class: "btn btn-home-search" %>
+              </p>
+          <% end %>    
         </div>
-      </div>
-    </div><!-- featured carousel -->
-
-  </div> <!-- home-header -->
-
-
-  <div id="howitworks" class="how">
-    <div class="container">
-      <h2>How It Works</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae necessitatibus voluptatibus nam reprehenderit unde doloribus a</p>
-      <div class="row">
-        <article class="service col-md-4 col-sm-6 col-xs-12">
-          <%= image_tag "search.svg", class: "icon_image" %>
-          <h3>Search for a tutor</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla facere labore.</p>
-        </article>
-
-        <article class="service col-md-4 col-sm-6 col-xs-12">
-          <%= image_tag "calendar-clock.svg", class: "icon_image" %>
-          <h3>Choose a date and time</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad nam, repellendus!</p>
-        </article>
-
-        <article class="service col-md-4 col-xs-12">
-          <%= image_tag "rocket.svg", class: "icon_image" %>
-          <h3>Start learning</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus accusamus earum veroe..</p>
-        </article>
-      </div>
-    </div>
-  </div>
-
-  <div class="teacher">
-    <div class="container">
-      <h2>Are You a Teacher?</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam amet, quisquam, mollitia modi voluptates accusantium possimus recusandae nihil culpa minima non omnis vel quidem, velit animi voluptas, excepturi rem minus.</p>
-      <a href="/teacher" class="btn btn-lg btn-teach">Start teaching</a>
-      <div class="footer">
-        <span class="copyright">© 2016 Tutors App</span>
-        <span>
-          <a href="#" class="terms">Terms &amp; Privacy</a>    
-        </span>   
+        <div class="home-xs-search-form visible-xs">
+          <%= link_to "Ders seçiniz", search_path, class: "btn xs-lesson-input" %>
+          <%= link_to search_path, class: "btn icon-xs-search" do %>
+            <i class="glyphicon glyphicon-search"></i>
+          <% end %>
+        </div>
       </div> 
     </div>
+  </div>   
+
+  <div class="row home-get-started-section">
+    <div class="col-md-6 search-tutor">
+      <div class="text-protection-scrim">
+        <div class="home-row-container">
+          <h2>Lokal veya online olarak öğren</h2>
+          <h3>En iyi eğitmenlerden ders al. Yakınındaki hocaları bul ya da evden online ders al. </h3>
+          <%= link_to "EĞİTMEN ARA", search_path, class: "btn-home-search-tutor" %>
+        </div>  
+      </div>
+    </div>
+    <div class="col-md-6 apply-teach">
+      <div class="text-protection-scrim">
+        <div class="home-row-container">
+          <h2>Eğitmen misin?</h2>
+          <h3>Papirus'un senin gibi öğretmenlere ihtiyacı var. Papirus ile öğretmeye başla. İster evden ister lokal olarak ders vererek kazan.</h3>
+          <%= link_to "ÖĞRETMEK İÇİN BAŞVUR", teacher_path, class: "btn-home-apply-teach" %>
+        </div>      
+      </div>
+    </div>
   </div>
-</div>
+  
+  <div id="howitworks">
+      <h1 class="howitworks-header">Nasıl Çalışır?</h1>
+      <div class="how-it-works-items row">
+        <div class="col-md-4">
+          <%= image_tag "search.svg", class: "howitworks-icon" %>
+          <h2>1. Eğitmen ara</h2>
+          <h3>İstediğin kriterlere göre filtreleyerek sana en uygun eğitmeni bul.</h3>
+        </div>
+        <div class="col-md-4">
+          <%= image_tag "calendar-clock.svg", class: "howitworks-icon" %>
+          <h2>2. Saat ve tarih belirle</h2>
+          <h3>Eğitmenin zaman tablosundan ders almak istediğin zamanı seç</h3>
+        </div>
+        <div class="col-md-4">
+          <%= image_tag "rocket.svg", class: "howitworks-icon" %>
+          <h2>3. Öğrenmeye başla</h2>
+          <h3>Online veya lokal olarak ders al</h3>
+        </div>
+      </div>
+  </div>
+
+  <div id="testimonials">
+    <div class="testimonials-items row">
+      <div class="col-md-4 testimonials-item">
+        <div class="testimonials-item-container">
+          <div class="testimonials-content">
+            <p class="testimonials-text">
+              Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <p class="profile-name">Melis</p>           
+            <p class="profile-title">Öğrenci</p>
+            <%= image_tag "profile1.jpg", class: "img-circle img-profile", width: '100px', height: '100px' %> 
+          </div>      
+        </div>
+      </div>
+      <div class="col-md-4 testimonials-item">
+       <div class="testimonials-item-container">
+          <div class="testimonials-content">
+            <p class="testimonials-text">
+              Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <p class="profile-name">Ali</p>           
+            <p class="profile-title">İngilizce eğitmeni</p>
+            <%= image_tag "profile2.jpg", class: "img-circle img-profile", width: '100px', height: '100px' %>  
+          </div>            
+       </div>
+      </div>
+      <div class="col-md-4 testimonials-item">
+        <div class="testimonials-item-container">
+          <div class="testimonials-content">
+            <p class="testimonials-text">
+              Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p> 
+            <p class="profile-name">Merve</p>           
+            <p class="profile-title">Öğrenci</p>
+            <%= image_tag "profile3.jpg", class: "img-circle img-profile", width: '100px', height: '100px' %> 
+          </div>            
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <h1>Papirus'a katıl</h1>
+    <div class="footer-buttons">
+      <%= link_to "ÖĞRENMEYE BAŞLA", search_path, class: "btn btn-footer-start-learning" %>   
+      <%= link_to "EĞİTMEN OL", teacher_path, class: "btn btn-footer-apply-teach" %>     
+    </div>
+
+    <div class="footer-links">
+       <p class="copyright">© 2016 Papirus Ltd. Şti.</p>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+  
+</div>  <!-- home-page -->

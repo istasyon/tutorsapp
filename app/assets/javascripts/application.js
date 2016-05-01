@@ -27,13 +27,9 @@ $("#geo-input").geocomplete();
 });  
 
 $(function() {
-
-
-
-  var wheight = $(window).height(); 
-  var slideqty = $('#featured .item').length;
-  var randSlide = Math.floor(Math.random()*slideqty);
   
+  var wheight = $(window).height();
+
   $('.fullheight').css('height', wheight); //set to window tallness  
 
   $(window).resize(function() {
@@ -41,25 +37,6 @@ $(function() {
     $('.fullheight').css('height', wheight); //set to window tallness  
   });
 
-  $('#featured .item').eq(randSlide).addClass('active');
-  
-
-
-
-
-    //replace IMG inside carousels with a background image
-  $('#featured .item img').each(function() {
-    var imgSrc = $(this).attr('src');
-    $(this).parent().css({'background-image': 'url('+imgSrc+')'});
-    $(this).remove();
-  });
-
-
-    // Carousel change
-  $('.carousel').carousel({   
-    interval: 4000,  
-    pause: false  // do not pause on hover
-  });
 
   var sideslider = $('[data-toggle=collapse-side]');
   var sel = sideslider.attr('data-target');
@@ -71,10 +48,10 @@ $(function() {
   });
 
   $(window).scroll(function() {
-    if ($(document).scrollTop() > 250) {
-      $(".navbar").addClass("scrolled");
+    if ($(document).scrollTop() > 50) {
+      $("#home-navbar").addClass("scrolled");
     } else {
-      $(".navbar").removeClass("scrolled");
+      $("#home-navbar").removeClass("scrolled");
     }
   });
 

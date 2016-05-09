@@ -19,7 +19,7 @@
             <% end %>
           <% end %>
           <% if(!user_signed_in?) %>
-            <li><a href="#"  data-toggle="modal" data-target="#ModalSignUp" class="home-nav-item" >Kayıt Ol</a></li>
+            <li><a href="#"  data-toggle="modal" data-target="#ModalSignUp" class="home-nav-item" >Kayıt ol</a></li>
             <li><a href="#" data-toggle="modal" data-target="#ModalLogin" class="btn-home-login">Giriş</a></li>
           <% else %>              
             <li><%= link_to "Çıkış", destroy_user_session_path, method: :delete, class:"home-nav-item" %></li>

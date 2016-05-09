@@ -1,73 +1,92 @@
 #search-results {
+	background-color: #f1f1f1;
 
-    #nearby-filters {
+	.howitworks-icon {
+		float: right;
+	}
 
-    	text-align: center;
-    	padding-top: 20px;
-		.btn-filter {
-			border-radius: 0;
-			background-color: #E91E63;
-			color: #fff;
-		}
-    }
-
-	#search-filters {
+	.search-filters {
+		background-color: #fff;
+		margin-top: 50px;
+		margin-bottom: 50px;
 		text-align: center;
-		height: 100px;
 		padding-top: 20px;
+		padding-bottom: 20px;
+		height: 200px;
 
-		.btn-filter {
+		.form-control {
+			height: 38px;
+		}
+
+		p {
+			font-weight: bold;
+		}
+
+		.filters-location-input, .filters-lesson-input, .btn-filters-search {
 			border-radius: 0;
-			background-color: #E91E63;
+		}
+
+		.filters-lesson-input, .btn-filters-search {
+			margin-left: -5px;
+		}		
+		
+
+		.filters-location-input{
+			padding-right: 40px;
+		}
+
+		.filters-lesson-input {
+			padding-right: 60px;
+		}
+
+		.btn-filters-search {
+			background-color: #D50000;
 			color: #fff;
+      padding: 8px 42px;
 		}
-	}
 
-	#tutor-list {
-		background-color: #F1F1F1;
-		padding-top: 30px;
-
-		.well-lg {
-			background-color: #fff;
-			border-radius: 0;
-			padding-top: 0;
-			padding-left: 0;
-			position: relative;
-			padding-left: 200px;
+		.availability-filter, .price-range-filter, .platform-filter, .sort {
+			display: inline-block;
+			float: left;
 		}
+		
+		.availability-select, .platform-select {
+			border: 1px solid #000;
+		}
+
+		.price-range-filter, .availability-filter, .sort {
+			margin-left: 20px;
+		}
+
+		#slider-range {
+			width: 155px;
+		}
+
+		#amount {
+			width: 100px;
+		}
+		
+		.sort {
+			padding-top: 40px;
+			font-weight: bold;
+		}
+
+
 	}
 
-	.listing-avatar {
-		float: left;
-		height: 136px;
-		position: absolute;
-		top: 0;
-		left: 0;
+	#listing-results {
+		
+		.listing-avatar {
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+
 	}
 
-	.name {
-		font-weight: bold;
-		font-size: 24px;
-	}
 
-	.price-label {
-		color: #999;
-		font-weight: bold;
-	} 
 
-	.price {
-		font-weight: bold;
-	}
 
-	.btn-schedule {
-		background-color: #4D90FE;
-		color: #fff;
-	}
 
-	.btn-message {
-		background-color: #E91E63;
-		color: #fff;
-	}
+
 }
-
-

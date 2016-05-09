@@ -1,3 +1,6 @@
+/*
+ *= require jquery-ui
+ */
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "fullcalendar";
@@ -11,8 +14,28 @@
 
 
 /* Basic Page CSS */
-  html,body {
-    height:100%;
-    font-size: 16px;
-  }
+html,body {
+  height:100%;
+  font-size: 16px;
+}
 
+#shared-navbar {
+	background-color: #fff;	
+	margin-bottom: 0;
+
+	.navbar-brand {
+		font-size: 36px;
+		color: #D50000;
+	}
+
+	.shared-nav-item {
+		color: rgb(5, 0, 33);
+	}
+
+	.btn-shared-login {
+		background-color: #D50000;
+		color: #fff;
+		padding: 3px 22px;
+		margin-top: 12px;
+	}
+}

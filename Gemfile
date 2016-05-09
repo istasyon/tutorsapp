@@ -25,6 +25,7 @@ gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 gem 'gmaps4rails'
 gem "paperclip"
+gem 'jquery-ui-rails'
 
 group :development, :test do
   gem 'dotenv-rails'

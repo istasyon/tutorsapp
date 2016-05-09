@@ -251,6 +251,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   jquery-turbolinks
+  jquery-ui-rails
   mailboxer
   momentjs-rails
   mysql2 (~> 0.3.10)

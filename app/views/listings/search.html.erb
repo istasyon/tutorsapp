@@ -1,32 +1,56 @@
-<script src="//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js" type="text/javascript"></script>
 <div id="search-results">
-  	
-  	<%= render "shared/navbar" %>
+	<%= render "shared/navbar" %>
+	<div class="container">
+		<div class="search-intro">
+			<%= image_tag "search.svg", class: "howitworks-icon", width: '110px', height: '110px' %>
+			<div class="search-intro-text">
+				<h1>Öğretmen bul</h1>
+				<p>İstediğin konuda, online veya birebir ders veren öğretmen bul. Seçtiğin kriterlere en uygun öğretmenleri listele, sana en uygun öğretmen ile iletişime geç.</p>
+			</div>
+		</div>	
 
- 	<div id="nearby-filters">
- 		Find Tutors in your Area<br>	
-		<%= form_tag nearby_path, :method => :get do %>
-	    	<p>
-	        <%= text_field_tag :search, params[:search],:id => 'geo-input' %>
-	        <%= submit_tag "Search Near", :name => nil, class: "btn btn-filter" %>
-	        </p>
-	    <% end %>       
-	</div> 	
+		<div class="search-filters">
+			<div class="top-filters">
+	      <%= form_tag nearby_path, :method => :get, class:"form-inline" do %>
+	        <p>
+	          <%= text_field_tag :search, params[:search],:id => 'geo-input', class: "form-control filters-location-input", placeholder: "Konum giriniz" %>
+	          <%= select_tag :language_id, 
+	                options_for_select(@languages.collect{ |l| [l.name, l.id] }), 
+	                class: "form-control filters-lesson-input",prompt: "Ders seçiniz" %>
+	          <%= submit_tag "EĞİTMEN ARA", :name => nil, class: "btn btn-filters-search" %>
+	          </p>
+	      <% end %>
+			</div>
+			<div class="secondary-filters">
+				<div class="availability-filter">
+					<p>Uygunluk</p>
+	        <%= select_tag "availability", 
+	              "<option>Sabah</option><option>Öğle</option><option>Akşam</option><option>Gece</option><option>Haftasonu</option>".html_safe,prompt: "Seçiniz", class: "btn availability-select" %>		
+				</div>
+				<div class="price-range-filter">
+					<p>
+					  <label for="amount">Saatlik ücret:</label>
+					  <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+					</p>
+					 
+					<div id="slider-range"></div>		
+				</div>
+				<div class="platform-filter">
+					<p>Platform</p>
+					<%= select_tag "platform", options_for_select([ "Online", "Lokal", "Hepsi" ], "Hepsi"), class: "btn platform-select" %>					
+				</div>
+				<div class="sort">
+					Sırala:
+					<a href="#">Puan</a>
+					<a href="#">Uzaklık</a>
+				</div>
+			</div>
+		</div>   <!-- search-filters -->
 
-	<div id="search-filters">
-		<%= form_tag(search_path, :method => "get", id: "search-filters", class:"form-inline") do %>
-		        <%= select_tag :location, options_for_select(@locations), class: "form-control" %>
-		        <%= select_tag :language_id, 
-		        			options_for_select(@languages.collect{ |l| [l.name, l.id] }), 
-		        			class: "form-control" %>			
-	        <%= submit_tag "Search", class: "btn btn-filter" %>
-        <% end %>
-	</div>
-	<div id="tutor-list">
-		<div class="container">
+		<div id="listing-results">
 			<% @results.each do |a| %>
 				<div class="well well-lg">
-					<%= image_tag "#{a.user.image}?type=large", class: "listing-avatar" %>
+					<%= image_tag "profile3.jpg", class: "listing-avatar", width: '150px', height: '150px' %>
 					<span class="name"><%= "#{a.user.first_name} #{a.user.last_name}" %></span><span id="average_rating_<%=a.user.id%>"></span> (<%= a.user.reviews.count %>)<br>
 					<%= truncate(a.description, length: 250) %><br>
 					<span class="price-label">Price:</span><span class="price"><%= " #{a.price} $" %></span><br>
@@ -67,23 +91,26 @@
 						score: <%= a.user.average_rating %>
 					});
 				</script>
-			<% end %>
+			<% end %>			
 		</div>
-	</div>
+
+
+	</div>  <!-- container -->
+
+	<%= will_paginate @results, renderer: BootstrapPagination::Rails %>
 </div>
 
-<%= will_paginate @results, renderer: BootstrapPagination::Rails %>
-<%= render "shared/registration_modals" %>
-
-<div style='width: 800px;'>
-  <div id="map" style='width: 800px; height: 400px;'></div>
-</div>
-
-<script type="text/javascript">
-  handler = Gmaps.build('Google');
-  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-  markers = handler.addMarkers(<%=raw @hash.to_json %>);
-    handler.bounds.extendWith(markers);
-    handler.fitMapToBounds();
+ <script>
+  $(document).ready(function() {
+    $( "#slider-range" ).slider({
+      range: true,
+      min: 0,
+      max: 150,
+      values: [ 0, 150 ],
+      slide: function( event, ui ) {
+        $( "#amount" ).val(ui.values[ 0 ] + "TL -" + ui.values[ 1 ] + "TL" );
+      }
+    });
+    $( "#amount" ).val($( "#slider-range" ).slider( "values", 0 ) + "TL -" + $( "#slider-range" ).slider( "values", 1 ) + "TL");
   });
-</script>
+  </script>

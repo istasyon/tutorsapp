@@ -11,6 +11,9 @@ class WelcomeController < ApplicationController
   	@languages = Language.all
   	@locations = Teacher.uniq.pluck(:location)
   end
+
+  def beta_landing
+  end
   
   def become_a_teacher
   	@user = current_user

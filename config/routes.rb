@@ -21,7 +21,8 @@ devise_for :users,
     resource :review
   end
 
-  root 'welcome#home' 
+  # root 'welcome#home'
+  root 'welcome#beta_landing'  
   get 'teacher' => 'welcome#become_a_teacher'
   get 'search' => 'listings#search' 
   get 'nearby' => 'listings#nearby'
